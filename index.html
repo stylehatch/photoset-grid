@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>jQuery Tumblr Photosets</title>
+	<meta name="description" content="Arrange images into a flexible grid, based on Tumblr's photoset feature.">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		body {
+			background: #ddd;
+		}
+		h1 {
+			font-size: 200%;
+			margin-bottom: 1.8em;
+		}
+		h2 {
+			font-size: 160%;
+			margin-bottom: 1.2em;
+		}
+		h3 {
+			font-size: 120%;
+			margin-bottom: 1em;
+		}
+
+		p {
+			margin-bottom: 1em;
+		}
+
+		pre {
+			background: #ddd;
+		}
+		pre p {
+			margin: 0;
+		}
+
+		#container {
+			margin: 20px auto;
+			width: 70%;
+			padding: 20px;
+			background: #fff;
+		}
+
+		footer {
+			font-size: 80%;
+		}
+
+		.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+		.hidden { display: none; visibility: hidden; }
+		.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+		.visuallyhidden.focusable:active,
+		.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+		.invisible { visibility: hidden; }
+		.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+		.clearfix:after { clear: both; }
+		.clearfix { zoom: 1; }
+
+	</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+	<script type="text/javascript">
+	var StyleHatch = window.StyleHatch || {};
+	</script>
+
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>jQuery Tumblr Photosets</h1>
+		</header>
+
+		<div id="main" role="main">
+			<h2>Photoset Demos</h2>
+
+			<div class="photoset-grid">
+	              <img src="http://25.media.tumblr.com/1e0e95564489c9499f4922410c082144/tumblr_mezsyxLcLy1qzv45so1_500.jpg" data-highres="http://25.media.tumblr.com/1e0e95564489c9499f4922410c082144/tumblr_mezsyxLcLy1qzv45so1_1280.jpg" alt="" height="667" width="500">
+	          
+	              <img src="http://24.media.tumblr.com/d8fee9497d3cd78df1a7f9d437f52ddb/tumblr_mezsyxLcLy1qzv45so2_500.jpg" data-highres="http://24.media.tumblr.com/d8fee9497d3cd78df1a7f9d437f52ddb/tumblr_mezsyxLcLy1qzv45so2_1280.jpg" alt="" height="663" width="500">
+	          
+	              <img src="http://25.media.tumblr.com/7a31b3551aa513ab2a8aeb1d8da61c84/tumblr_mezsyxLcLy1qzv45so3_500.jpg" data-highres="http://24.media.tumblr.com/7a31b3551aa513ab2a8aeb1d8da61c84/tumblr_mezsyxLcLy1qzv45so3_1280.jpg" alt="" height="500" width="500">
+	          
+	              <img src="http://24.media.tumblr.com/56896190dbe025ed3ec1b60b5c51c99c/tumblr_mezsyxLcLy1qzv45so4_500.jpg" data-highres="http://25.media.tumblr.com/56896190dbe025ed3ec1b60b5c51c99c/tumblr_mezsyxLcLy1qzv45so4_1280.jpg" alt="" height="500" width="500">
+	          
+	              <img src="http://25.media.tumblr.com/9f80cd2c626f31fb3bf9b1f4b7b0d74c/tumblr_mezsyxLcLy1qzv45so5_500.jpg" data-highres="http://25.media.tumblr.com/9f80cd2c626f31fb3bf9b1f4b7b0d74c/tumblr_mezsyxLcLy1qzv45so5_1280.jpg" alt="" height="500" width="500">
+	        </div>
+
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+
+	        <div class="photoset-grid-alt" data-layout="22">
+	                            
+	            <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o2_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o2_1280.jpg" alt="">
+	        
+	            <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o3_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o3_1280.jpg" alt="">
+	        
+	            <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o4_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o4_1280.jpg" alt="">
+	        
+	            <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o1_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o1_1280.jpg" alt="">
+	        
+	        </div>
+
+			
+			<h2>References</h2>
+			<code>
+				Photoset layout - 1323
+
+				JSPhotoset layout - ["1","3","2","3"]
+			</code>
+		</div>
+
+		<footer>
+			<p>Created by <a href="http://jonathanmoore.com">Jonathan Moore</a></p>
+		</footer>
+	</div>
+
+
+	<script src="jquery.photosetGrid.min.js"></script>
+	<script type="text/javascript">
+
+	// Photoset Grid
+
+	$('.photoset-grid').photosetGrid({
+		layout: "1121",
+		width: '75%',
+		highresLinks: true,
+
+		onComplete: function(){
+
+		}
+	});
+
+	$('.photoset-grid-alt').photosetGrid();
+	</script>
+	
+
+</body>
+</html>
