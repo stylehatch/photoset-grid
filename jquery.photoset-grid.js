@@ -42,8 +42,6 @@
         // Call the optional onInit event set when the plugin is called
         this.options.onInit();
 
-        console.log('i am inside working?');
-
         this._setupRows(this.element, this.options);
         this._setupColumns(this.element, this.options);
 
