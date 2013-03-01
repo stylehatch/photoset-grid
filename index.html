@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+	<link rel="stylesheet" href="css/main.css" />
+
 	<style type="text/css">
 
 		/*
@@ -33,9 +35,6 @@
 			}
 		*/
 
-		body {
-			background: #ddd;
-		}
 		h1 {
 			font-size: 200%;
 			margin-bottom: 1.8em;
@@ -152,15 +151,11 @@
 	// Photoset Grid
 
 	$('.photoset-grid').photosetGrid({
-
-
 		gutter: '5px',
 		layout: '5',
 		highresLinks: true,
 
-		onComplete: function(){
-
-		}
+		onComplete: function(){}
 	});
 
 	$('.photoset-grid-alt').photosetGrid();
