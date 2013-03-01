@@ -46,6 +46,10 @@ module.exports = function(grunt) {
       css: {
         files: '**/*.css',
         tasks: ['livereload']
+      },
+      scss: {
+        files: '**/*.scss',
+        tasks: ['sass', 'livereload']
       }
     },
 
@@ -71,6 +75,17 @@ module.exports = function(grunt) {
           'jquery.photoset-grid.min.js': ['jquery.photoset-grid.js']
         }
       }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'nested'
+        },
+        files: {
+          'css/main.css': ['css/scss/_normalize.scss', 'css/scss/main.scss']
+        }
+      }
     }
 
 
@@ -82,11 +97,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-livereload');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-open');
 
   // $ grunt
   // Checks the js and minifies it
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'sass']);
   // $ grunt server
   // Checks the js, minfies it, starts livereload, connects to a local server, opens the browser and watches for changes 
   grunt.registerTask('server', ['default', 'livereload-start', 'connect', 'open:dev', 'regarde']);
