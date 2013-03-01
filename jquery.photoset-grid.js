@@ -1,8 +1,8 @@
 /**
- * jquery-photosetGrid - v0.9.0
+ * photoset-grid - v0.9.0
  * 2013-02-28
  * Arrange images into a flexible grid, based on Tumblr's photoset feature.
- * http://stylehatch.github.com/photosetGrid/
+ * http://stylehatch.github.com/photoset-grid/
  *
  * Copyright 2013 Jonathan Moore - Style Hatch
  */

@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 
     // Check for ghetto js in the plugin
     jshint: {
-      files: ['jquery.photosetGrid.js']
+      files: ['jquery.photoset-grid.js']
     },
 
     // Minify the file and add a comment banner at the top with settings from package.json
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'jquery.photosetGrid.min.js': ['jquery.photosetGrid.js']
+          'jquery.photoset-grid.min.js': ['jquery.photoset-grid.js']
         }
       }
     }

@@ -1,8 +1,8 @@
 {
-  "name": "jquery-photosetGrid",
+  "name": "photoset-grid",
   "version": "0.9.0",
   "description": "Arrange images into a flexible grid, based on Tumblr's photoset feature.",
-  "main": "jquery.photosetGrid.js",
+  "main": "jquery.photoset-grid.min.js",
   "dependencies": {
     "jquery": ">=1.5"
   }
