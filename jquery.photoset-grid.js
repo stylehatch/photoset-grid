@@ -87,6 +87,10 @@
           
           imageIndex = rowEnd;
         });
+
+        $(elem).find('.photoset-row:not(:last-child)').css({
+          'margin-bottom': options.gutter
+        });
       },
 
       _setupColumns: function(  elem, options ){
@@ -123,9 +127,6 @@
 
           // Apply styles initial structure styles to the grid
           $(elem).css({
-            '-webkit-box-sizing': 'border-box',
-            '-moz-box-sizing': 'border-box',
-            'box-sizing': 'border-box',
             'width': options.width
           });
           $rows.css({
@@ -136,7 +137,10 @@
           $cells.css({
             'float': 'left',
             'display': 'block',
-            'line-height': '0'
+            'line-height': '0',
+            '-webkit-box-sizing': 'border-box',
+            '-moz-box-sizing': 'border-box',
+            'box-sizing': 'border-box'
           });
           $images.css({
             'width': '100%',
@@ -149,6 +153,17 @@
           $cols3.css({ 'width': '33.3%' });
           $cols4.css({ 'width': '25%' });
           $cols5.css({ 'width': '20%' });
+
+
+          var gutterVal = parseInt(options.gutter, 10);
+          // Apply 50% gutter to left and right
+          // this provides equal gutters a high values
+          $(elem).find('.photoset-cell:not(:last-child)').css({
+            'padding-right': (gutterVal / 2) + 'px'
+          });
+          $(elem).find('.photoset-cell:not(:first-child)').css({
+            'padding-left': (gutterVal / 2) + 'px'
+          });
 
 
           function resizePhotosetGrid(){
