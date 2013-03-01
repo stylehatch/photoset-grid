@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>{{ site.name }}{% if page.category != 'homepage' %} &middot; {{ post.title }}{% endif %}</title>
+  <meta name="description" content="Arrange images into a flexible grid, based on Tumblr's photoset feature.">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <style type="text/css">
+
+    /*
+      Bryant-Web
+      bold: 700 normal
+
+      h1 {
+        font-family: "bryant-web",sans-serif;
+      }
+
+      Locator-Web
+      regular: 400 normal
+      italic: 400 italic
+      bold: 700 normal
+      bold italic: 700 italic
+
+      h1 {
+        font-family: "locator-web",sans-serif;
+      }
+    */
+
+    body {
+      background: #ddd;
+    }
+    h1 {
+      font-size: 200%;
+      margin-bottom: 1.8em;
+    }
+    h2 {
+      font-size: 160%;
+      margin-bottom: 1.2em;
+    }
+    h3 {
+      font-size: 120%;
+      margin-bottom: 1em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    pre {
+      background: #ddd;
+    }
+    pre p {
+      margin: 0;
+    }
+
+    #container {
+      margin: 20px auto;
+      width: 70%;
+      padding: 20px;
+      background: #fff;
+    }
+
+    footer {
+      font-size: 80%;
+    }
+
+    .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+    .hidden { display: none; visibility: hidden; }
+    .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+    .visuallyhidden.focusable:active,
+    .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+    .invisible { visibility: hidden; }
+    .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+    .clearfix:after { clear: both; }
+    .clearfix { zoom: 1; }
+
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+  <script type="text/javascript">
+  var StyleHatch = window.StyleHatch || {};
+  </script>
+
+</head>
+<body>
+  <div id="container">
+    {{ content }}
+    <footer>
+      {% if page.author %}
+      <p>Created by <a href="{{ page.author-url }}">{{ page.author }}</a></p>
+      {% endif %}
+    </footer>
+  </div>
+
+
+  <script src="jquery.photoset-grid.js"></script>
+  <script type="text/javascript">
+
+  // Photoset Grid
+
+  $('.photoset-grid').photosetGrid({
+
+
+    gutter: '5px',
+    layout: '5',
+    highresLinks: true,
+
+    onComplete: function(){
+
+    }
+  });
+
+  $('.photoset-grid-alt').photosetGrid();
+  </script>
+  
+
+</body>
+</html>
