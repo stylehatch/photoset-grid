@@ -13,7 +13,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-
+    // Use grunt-contrib-connect to launch a web server at port 9001
+    // Inject the livereloadSnippet via middleware to update the files
     connect: {
       livereload: {
         options: {
@@ -25,6 +26,14 @@ module.exports = function(grunt) {
       }
     },
 
+    // Opens up the browser to the localhost along with the port defined above
+    open: {
+      dev: {
+        path: 'http://127.0.0.1:<%= connect.livereload.options.port %>/'
+      }
+    },
+
+    // Observe the js/html/css files for changes and execute the tasks
     regarde: {
       js: {
         files: ['**/*.js', '!**/node_modules/**'],
@@ -40,10 +49,12 @@ module.exports = function(grunt) {
       }
     },
 
+    // Check for ghetto js in the plugin
     jshint: {
       files: ['jquery.photosetGrid.js']
     },
 
+    // Minify the file and add a comment banner at the top with settings from package.json
     uglify: {
       options: {
         banner: '/**\n' +
@@ -71,9 +82,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-livereload');
+  grunt.loadNpmTasks('grunt-open');
 
-  // Default task(s)
+  // $ grunt
+  // Checks the js and minifies it
   grunt.registerTask('default', ['jshint', 'uglify']);
-  grunt.registerTask('server', ['livereload-start', 'connect', 'regarde']);
+  // $ grunt server
+  // Checks the js, minfies it, starts livereload, connects to a local server, opens the browser and watches for changes 
+  grunt.registerTask('server', ['default', 'livereload-start', 'connect', 'open:dev', 'regarde']);
 
 };
