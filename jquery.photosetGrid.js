@@ -19,6 +19,7 @@
       gutter        : '0px',            
       highresLinks  : true,
       lowresWidth   : 500,
+      layout        : null,
 
       // Call back events
       onInit        : function(){},
