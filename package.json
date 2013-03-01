@@ -1,0 +1,20 @@
+{
+  "name": "jquery-photosetGrid",
+  "version": "0.9.0",
+  "description": "Arrange images into a flexible grid, based on Tumblr's photoset feature.",
+  "author": "Jonathan Moore - Style Hatch",
+  "repository": {
+  	"type": "git",
+  	"url": "git://github.com/stylehatch/photosetGrid.git",
+    "docs": "http://stylehatch.github.com/photosetGrid/"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-uglify": "~0.1.2",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-connect": "~0.1.2",
+    "grunt-regarde": "latest"
+  }
+}
