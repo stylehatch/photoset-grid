@@ -4,7 +4,6 @@
   "description": "Arrange images into a flexible grid, based on Tumblr's photoset feature.",
   "main": "jquery.photosetGrid.js",
   "dependencies": {
-    "jquery": ">=1.5",
-    "imagesloaded": "latest"
+    "jquery": ">=1.5"
   }
 }
