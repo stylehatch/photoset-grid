@@ -59,7 +59,13 @@
           this.layout = $(elem).attr('data-layout');
         } else {
           // Otherwise give it a stacked layout (no grids for you)
-          this.layout = "1";
+          // Generate a layout string of all ones based on the number of images
+          var stackedLayout = "";
+          var defaultColumns = 1;
+          for (var imgs=0; imgs<$(elem).find('img').length; imgs++ ) {
+            stackedLayout = stackedLayout + defaultColumns.toString();
+          }
+          this.layout = stackedLayout;
         }
 
         // Dump the layout into a rows array
