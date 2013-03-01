@@ -9,6 +9,9 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 	<style type="text/css">
 		body {
 			background: #ddd;
@@ -123,14 +126,16 @@
 	</div>
 
 
-	<script src="jquery.photoset-grid.min.js"></script>
+	<script src="jquery.photoset-grid.js"></script>
 	<script type="text/javascript">
 
 	// Photoset Grid
 
 	$('.photoset-grid').photosetGrid({
-		layout: "1121",
-		width: '75%',
+
+
+		gutter: '5px',
+		layout: '5',
 		highresLinks: true,
 
 		onComplete: function(){
