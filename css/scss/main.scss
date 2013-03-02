@@ -59,8 +59,14 @@ h5 {
   border-radius: 0.6em;
   footer {
     background-color: $grey;
-//    margin: 0 -2.5em -1.25em -2.5em;
-//    padding: 1.25em 2.5em;
+    // reset footer margin & padding so that bg color reaches edge of container
+    margin: 1em -2.5em -1.25em -2.5em;
+    padding: 1.25em 2.5em;
+    border-bottom-left-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+    p {
+      margin: 0;
+    }
   }
 }
 
