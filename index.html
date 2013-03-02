@@ -12,6 +12,10 @@
 	<script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
 	<link rel="stylesheet" href="css/main.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -74,12 +78,11 @@
 			<h5>HTML:</h5>
 
 <pre><code>&lt;div class="photoset-grid" data-layout="13"&gt;
-    &lt;img src="image1.jpg"&gt;
-    &lt;img src="image2.jpg"&gt;
-    &lt;img src="image3.jpg"&gt;
-    &lt;img src="image4.jpg"&gt;
-&lt;/div&gt;
-</code></pre>
+  &lt;img src="image1.jpg"&gt;
+  &lt;img src="image2.jpg"&gt;
+  &lt;img src="image3.jpg"&gt;
+  &lt;img src="image4.jpg"&gt;
+&lt;/div&gt;</code></pre>
 
 			<h5>Javascript:</h5>
 
@@ -105,38 +108,37 @@
 
 			<h5>HTML:</h5>
 
-			<pre><code>&lt;div class="photoset-grid"&gt;
-			    &lt;img src="image1.jpg" data-highres="highres-image1.jpg"&gt;
-			    &lt;img src="image2.jpg" data-highres="highres-image2.jpg"&gt;
-			    &lt;img src="image3.jpg" data-highres="highres-image3.jpg"&gt;
-			    &lt;img src="image4.jpg" data-highres="highres-image4.jpg"&gt;
-			    &lt;img src="image5.jpg" data-highres="highres-image5.jpg"&gt;
-			    &lt;img src="image6.jpg" data-highres="highres-image6.jpg"&gt;
-			    &lt;img src="image7.jpg" data-highres="highres-image7.jpg"&gt;
-			&lt;/div&gt;
-			</code></pre>
+<pre><code>&lt;div class="photoset-grid"&gt;
+  &lt;img src="image1.jpg" data-highres="highres-image1.jpg"&gt;
+  &lt;img src="image2.jpg" data-highres="highres-image2.jpg"&gt;
+  &lt;img src="image3.jpg" data-highres="highres-image3.jpg"&gt;
+  &lt;img src="image4.jpg" data-highres="highres-image4.jpg"&gt;
+  &lt;img src="image5.jpg" data-highres="highres-image5.jpg"&gt;
+  &lt;img src="image6.jpg" data-highres="highres-image6.jpg"&gt;
+  &lt;img src="image7.jpg" data-highres="highres-image7.jpg"&gt;
+&lt;/div&gt;</code></pre>
 
 			<h5>Javascript:</h5>
 
-			<pre><code>$('.photoset-grid').photosetGrid({
-			    layout: '232',
-			    width: '100%',
-			    gutter: '5px',
-			    highresLinks: true,
-			    lowresWidth: 300,
+<pre><code>$('.photoset-grid').photosetGrid({
+    layout: '232',
+    width: '100%',
+    gutter: '5px',
+    highresLinks: true,
+    lowresWidth: 300,
 
-			    onInit: function(){
-			        // Do something when the plugin is initialized
-			    },
-			    onComplete: function(){
-			        /* Possible uses…
-			           Set visibility: visible after the grid renders
-			           Apply a lightbox plugin to use the data-highres
-			           Load a sparkling unicorn animated GIF
-			        */
-			    }
-			});
-			</code></pre>
+    onInit: function(){
+        // Do something when the plugin is initialized
+    },
+    onComplete: function(){
+        /* Possible uses…
+           Set visibility: visible after the grid renders
+           Apply a lightbox plugin to use the data-highres
+           Load a sparkling unicorn animated GIF
+        */
+    }
+});
+</code></pre>
 
 			<h2>Installation</h2>
 
