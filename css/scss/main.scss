@@ -121,11 +121,12 @@ a.button {
     padding: 1.25em 2.5em;
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
-    p {
+    p, h5 {
       margin: 0;
+      color: $darkBlue;
     }
-    h5 {
-      margin-top: 0;
+    div.question {
+      text-align: right;
     }
   }
 }

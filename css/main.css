@@ -313,10 +313,11 @@ a.button {
       display: table; }
     #container footer:after {
       clear: both; }
-    #container footer p {
-      margin: 0; }
-    #container footer h5 {
-      margin-top: 0; }
+    #container footer p, #container footer h5 {
+      margin: 0;
+      color: #293037; }
+    #container footer div.question {
+      text-align: right; }
 
 div.third-split {
   width: 33%;
