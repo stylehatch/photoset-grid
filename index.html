@@ -25,55 +25,142 @@
 <body>
 	<div id="container">
 		<header>
-			<h1>jQuery Tumblr Photosets</h1>
+			<h1>Photoset Grid</h1>
+			<h5>jQuery plugin to arrange images into a flexible grid</h5>
 		</header>
+		<div class="share">
+			<iframe src="http://jonathanmoore.github.com/github-buttons/github-stylehatch-btn.html?user=stylehatch&amp;repo=photoset-grid&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+			<iframe src="http://jonathanmoore.github.com/github-buttons/github-stylehatch-btn.html?user=stylehatch&amp;repo=photoset-grid&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://stylehatch.github.com/photoset-grid" data-text="Photoset Grid - jQuery plugin to arrange images into a flexible grid" data-via="stylehatch" data-related="Moore">Tweet</a>
+			<a href="https://twitter.com/stylehatch" class="twitter-follow-button" data-show-count="true" data-align="right" data-lang="en">Follow @twitterapi</a>
+		</div>
 
 		<div id="main" role="main">
-			<h2>Photoset Demos</h2>
+			<p>A simple jQuery plugin to arrange images into a flexible grid, based on Tumblr's photoset feature. Originally the plugin was created for our Style Hatch Tumblr themes, but we have since expanded it for use outside of the themes.</p>
 
-			<div class="photoset-grid">
-	      <img src="http://25.media.tumblr.com/1e0e95564489c9499f4922410c082144/tumblr_mezsyxLcLy1qzv45so1_500.jpg" data-highres="http://25.media.tumblr.com/1e0e95564489c9499f4922410c082144/tumblr_mezsyxLcLy1qzv45so1_1280.jpg" alt="" height="667" width="500">
+			<h2>Demo</h2>
+
+			<p>View the <a href="http://stylehatch.github.com/photoset-grid">photoset grid Github page</a> for all the examples or jump straight to the following demos:</p>
+
+			<ul>
+			<li><a href="http://stylehatch.github.com/photoset-grid#demo-basic-usage">Basic usage</a></li>
+			<li><a href="http://stylehatch.github.com/photoset-grid#demo-custom-options">Custom options</a></li>
+			<li><a href="http://stylehatch.github.com/photoset-grid#demo-tumblr">Using photoset grid in a Tumblr theme</a></li>
+			<li><a href="http://stylehatch.github.com/photoset-grid#demo-lightbox">Adding a lightbox viewer</a></li>
+			</ul>
+
+
+			<h2>Usage</h2>
+
+			<p>Apply the photo set grid layout to a selected <code>div</code> containing images for the grid.</p>
+
+			<p>The only markup requirement is a <code>data-layout</code> attribute on the selected <code>div</code>. <code>data-layout</code> should contain a string of numbers representing the number of columns for each row.</p>
+
+			<h5>Layout Example:</h5>
+
+			<ul>
+			<li><code>data-layout="2331"</code> 1st row has 2 images, 2nd row has 3 images, 3rd row has 3 images, and 4th row has 1 image. Total of 9 images.</li>
+			<li><code>data-layout="13"</code> 1st row has 1 image and 2nd row has 3 images.</li>
+			</ul>
+
+
+			<h3>Basic Usage</h3>
+
+			<p>Simply call <code>photosetGrid();</code> on a div with the <code>data-layout</code> specified and a number of images inside.</p>
+
+			<h5>HTML:</h5>
+
+<pre><code>&lt;div class="photoset-grid" data-layout="13"&gt;
+    &lt;img src="image1.jpg"&gt;
+    &lt;img src="image2.jpg"&gt;
+    &lt;img src="image3.jpg"&gt;
+    &lt;img src="image4.jpg"&gt;
+&lt;/div&gt;
+</code></pre>
+
+			<h5>Javascript:</h5>
+
+			<pre><code>$('.photoset-grid').photosetGrid();
+</code></pre>
+
+			<h3>Custom Options</h3>
+
+			<p>Beyond the basic usage, you can set a number of optional arguments including callback functions that are useful for adding a lightbox for high resolution images.</p>
+
+			<h4>Arguments:</h4>
+
+			<ul>
+			<li><code>width</code> - <code>string</code> Change the width that the photo set grid will be rendered at. Default: <code>100%</code> <em>automatically fits its container for responsive layouts</em></li>
+			<li><code>layout</code> - <code>string</code> Manually set a string of numbers to specify the number of images each row contains. Default: <code>null</code> <em>generates a stacked layout of one image per row</em></li>
+			<li><code>gutter</code> - <code>string</code> Set the pixel width between the columns and rows. Default: <code>0px</code></li>
+			<li><code>highresLinks</code> - <code>boolean</code> Set to <code>true</code> to automatically swap out the default image <code>src</code> with the <code>data-highres</code> attribute once the image is wider than <code>lowresWidth</code>. This will also wrap each image with an <code>a</code> vs. <code>div</code> element. Default: <code>false</code></li>
+			<li><code>lowresWidth</code> - <code>number</code> Sets the width where the default image is swapped out for the high resolution image. Default: <code>500</code></li>
+			<li><code>onInit</code> - <code>function</code> Define a function to be called when the plugin is initialized.</li>
+			<li><code>onComplete</code> - <code>function</code> Define a function to be called when the plugin has completed the grid layout.</li>
+			</ul>
+
+
+			<h5>HTML:</h5>
+
+			<pre><code>&lt;div class="photoset-grid"&gt;
+			    &lt;img src="image1.jpg" data-highres="highres-image1.jpg"&gt;
+			    &lt;img src="image2.jpg" data-highres="highres-image2.jpg"&gt;
+			    &lt;img src="image3.jpg" data-highres="highres-image3.jpg"&gt;
+			    &lt;img src="image4.jpg" data-highres="highres-image4.jpg"&gt;
+			    &lt;img src="image5.jpg" data-highres="highres-image5.jpg"&gt;
+			    &lt;img src="image6.jpg" data-highres="highres-image6.jpg"&gt;
+			    &lt;img src="image7.jpg" data-highres="highres-image7.jpg"&gt;
+			&lt;/div&gt;
+			</code></pre>
+
+			<h5>Javascript:</h5>
+
+			<pre><code>$('.photoset-grid').photosetGrid({
+			    layout: '232',
+			    width: '100%',
+			    gutter: '5px',
+			    highresLinks: true,
+			    lowresWidth: 300,
+
+			    onInit: function(){
+			        // Do something when the plugin is initialized
+			    },
+			    onComplete: function(){
+			        /* Possible uses…
+			           Set visibility: visible after the grid renders
+			           Apply a lightbox plugin to use the data-highres
+			           Load a sparkling unicorn animated GIF
+			        */
+			    }
+			});
+			</code></pre>
+
+			<h2>Installation</h2>
+
+			<p><strong>Bower package manager</strong></p>
+
+			<p>Dorkin poken, <code>$ bower install photoset-grid</code> in wunderbar morgen buerger.</p>
+
+			<p><strong>Download and install</strong>
+			Underbite wunderbar stein oompaloomp kaboodle stein pukein, undervear heiden achtung. Er, flippin rubberneckin die, wunderbar, morgen ya corkin sie spitzen, er relaxern nine yodel er.</p>
+
+			<h2>Author</h2>
+
+			<p><strong>Jonathan Moore</strong></p>
+
+			<ul>
+			<li><a href="http://twitter.com/moore">twitter.com/moore</a></li>
+			<li><a href="http://github.com/jonathanmoore">github.com/jonathanmoore</a></li>
+			<li><a href="http://jonathanmoore.com">jonathanmoore.com</a></li>
+			</ul>
+
+
+			<h2>Copyright &amp; License</h2>
+
+			<p>Makin frankfurter ker relaxern corkin kaboodle strudel hinder dorkin, uber kaputt der underbite poken. Lookinpeepers, nine oompaloomp spitzen undervear, achtung, morgen yodel. Buerger und flippin spitzen ya das.</p>
+     	</div>
+
 	  
-	      <img src="http://24.media.tumblr.com/d8fee9497d3cd78df1a7f9d437f52ddb/tumblr_mezsyxLcLy1qzv45so2_500.jpg" data-highres="http://24.media.tumblr.com/d8fee9497d3cd78df1a7f9d437f52ddb/tumblr_mezsyxLcLy1qzv45so2_1280.jpg" alt="" height="663" width="500">
-	  
-	      <img src="http://25.media.tumblr.com/7a31b3551aa513ab2a8aeb1d8da61c84/tumblr_mezsyxLcLy1qzv45so3_500.jpg" data-highres="http://24.media.tumblr.com/7a31b3551aa513ab2a8aeb1d8da61c84/tumblr_mezsyxLcLy1qzv45so3_1280.jpg" alt="" height="500" width="500">
-	  
-	      <img src="http://24.media.tumblr.com/56896190dbe025ed3ec1b60b5c51c99c/tumblr_mezsyxLcLy1qzv45so4_500.jpg" data-highres="http://25.media.tumblr.com/56896190dbe025ed3ec1b60b5c51c99c/tumblr_mezsyxLcLy1qzv45so4_1280.jpg" alt="" height="500" width="500">
-	  
-	      <img src="http://25.media.tumblr.com/9f80cd2c626f31fb3bf9b1f4b7b0d74c/tumblr_mezsyxLcLy1qzv45so5_500.jpg" data-highres="http://25.media.tumblr.com/9f80cd2c626f31fb3bf9b1f4b7b0d74c/tumblr_mezsyxLcLy1qzv45so5_1280.jpg" alt="" height="500" width="500">
-      </div>
-
-      <div class="photoset-grid-alt" data-layout="31">
-			                    
-			    <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o2_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o2_1280.jpg" alt="">
-
-			    <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o3_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o3_1280.jpg" alt="">
-
-			    <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o4_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o4_1280.jpg" alt="">
-
-			    <img src="http://24.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o1_500.jpg" data-highres="http://25.media.tumblr.com/tumblr_md4tsjT7mE1rq6np1o1_1280.jpg" alt="">
-      
-      </div>
-		<!-- Paragraph Examples -->
-		<h2>References</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos id repellendus placeat cumque minima deserunt animi. Quia itaque aliquam dicta recusandae tempora voluptate corporis vitae hic rerum cum illum alias?</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos id repellendus placeat cumque minima deserunt animi. Quia itaque aliquam dicta recusandae tempora voluptate corporis vitae hic rerum cum illum alias?</p>
-		<h5>This is an H5</h5>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos id repellendus placeat cumque minima deserunt animi. Quia itaque aliquam dicta recusandae tempora voluptate corporis vitae hic rerum cum illum alias?</p>
-    <!-- Header Examples -->
-		<h1>This is an H1</h1>
-		<h2>This is an H2</h2>
-		<h3>This is an H3</h3>
-		<h4>This is an H4</h4>
-		<h5>This is an H5</h5>
-    <!-- Code Example -->
-		<h5>Example Code</h5>
-		<pre><code>
-  Photoset layout - 1323
-
-  JSPhotoset layout - ["1","3","2","3"]
-		</code></pre>
-    <p>Here's an example of <code>inline code</code> right here</p>
 		<footer>
 			<p>Created by <a href="http://jonathanmoore.com">Jonathan Moore</a></p>
 		</footer>
@@ -95,6 +182,8 @@
 
 	$('.photoset-grid-alt').photosetGrid();
 	</script>
+
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	
 
 </body>
