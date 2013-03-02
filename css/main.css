@@ -251,6 +251,13 @@ h5 {
   text-transform: uppercase;
   color: #71767d; }
 
+a {
+  color: #0fb9e6; }
+  a:hover, a:active {
+    color: #0a7f9e; }
+  a:visited {
+    color: #0a7f9e; }
+
 #container {
   max-width: 51.9em;
   margin: 2.5em auto;

@@ -5,6 +5,7 @@
 // COLORS
 $darkBlue: #293037;
 $medBlue: #71767d;
+$popBlue: #0fb9e6;
 $white: #ffffff;
 $grey: #f1f2f3;
 $black: #252b31;
@@ -51,6 +52,16 @@ h5 {
   font-weight: 700;
   text-transform: uppercase;
   color: $medBlue;
+}
+
+a {
+  color: $popBlue;
+  &:hover, &:active {
+    color: darken($popBlue, 15%);
+  }
+  &:visited {
+    color: darken($popBlue, 15%);
+  }
 }
 
 // Main Page Container
