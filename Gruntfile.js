@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           style: 'nested'
         },
         files: {
-          'css/main.css': ['css/scss/_normalize.scss', 'css/scss/main.scss']
+          'css/main.css': ['css/scss/_normalize.scss', 'css/scss/_clearfix.scss', 'css/scss/main.scss']
         }
       }
     }
