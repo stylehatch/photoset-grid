@@ -3,14 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
+
 	<title>jQuery Tumblr Photosets</title>
 	<meta name="description" content="Arrange images into a flexible grid, based on Tumblr's photoset feature.">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
 	<link rel="stylesheet" href="css/main.css" />
 
@@ -23,6 +27,9 @@
 
 </head>
 <body>
+	<header class="page-head">
+		<img src="img/sh-logo.png">
+	</header>
 	<div id="container">
 		<header>
 			<h1>Photoset Grid</h1>
@@ -71,16 +78,15 @@
 			<h5>HTML:</h5>
 
 <pre><code>&lt;div class="photoset-grid" data-layout="13"&gt;
-    &lt;img src="image1.jpg"&gt;
-    &lt;img src="image2.jpg"&gt;
-    &lt;img src="image3.jpg"&gt;
-    &lt;img src="image4.jpg"&gt;
-&lt;/div&gt;
-</code></pre>
+  &lt;img src="image1.jpg"&gt;
+  &lt;img src="image2.jpg"&gt;
+  &lt;img src="image3.jpg"&gt;
+  &lt;img src="image4.jpg"&gt;
+&lt;/div&gt;</code></pre>
 
 			<h5>Javascript:</h5>
 
-			<pre><code>$('.photoset-grid').photosetGrid();
+<pre><code class="javascript">$('.photoset-grid').photosetGrid();
 </code></pre>
 
 			<h3>Custom Options</h3>
@@ -102,38 +108,37 @@
 
 			<h5>HTML:</h5>
 
-			<pre><code>&lt;div class="photoset-grid"&gt;
-			    &lt;img src="image1.jpg" data-highres="highres-image1.jpg"&gt;
-			    &lt;img src="image2.jpg" data-highres="highres-image2.jpg"&gt;
-			    &lt;img src="image3.jpg" data-highres="highres-image3.jpg"&gt;
-			    &lt;img src="image4.jpg" data-highres="highres-image4.jpg"&gt;
-			    &lt;img src="image5.jpg" data-highres="highres-image5.jpg"&gt;
-			    &lt;img src="image6.jpg" data-highres="highres-image6.jpg"&gt;
-			    &lt;img src="image7.jpg" data-highres="highres-image7.jpg"&gt;
-			&lt;/div&gt;
-			</code></pre>
+<pre><code>&lt;div class="photoset-grid"&gt;
+  &lt;img src="image1.jpg" data-highres="highres-image1.jpg"&gt;
+  &lt;img src="image2.jpg" data-highres="highres-image2.jpg"&gt;
+  &lt;img src="image3.jpg" data-highres="highres-image3.jpg"&gt;
+  &lt;img src="image4.jpg" data-highres="highres-image4.jpg"&gt;
+  &lt;img src="image5.jpg" data-highres="highres-image5.jpg"&gt;
+  &lt;img src="image6.jpg" data-highres="highres-image6.jpg"&gt;
+  &lt;img src="image7.jpg" data-highres="highres-image7.jpg"&gt;
+&lt;/div&gt;</code></pre>
 
 			<h5>Javascript:</h5>
 
-			<pre><code>$('.photoset-grid').photosetGrid({
-			    layout: '232',
-			    width: '100%',
-			    gutter: '5px',
-			    highresLinks: true,
-			    lowresWidth: 300,
+<pre><code>$('.photoset-grid').photosetGrid({
+    layout: '232',
+    width: '100%',
+    gutter: '5px',
+    highresLinks: true,
+    lowresWidth: 300,
 
-			    onInit: function(){
-			        // Do something when the plugin is initialized
-			    },
-			    onComplete: function(){
-			        /* Possible uses…
-			           Set visibility: visible after the grid renders
-			           Apply a lightbox plugin to use the data-highres
-			           Load a sparkling unicorn animated GIF
-			        */
-			    }
-			});
-			</code></pre>
+    onInit: function(){
+        // Do something when the plugin is initialized
+    },
+    onComplete: function(){
+        /* Possible uses…
+           Set visibility: visible after the grid renders
+           Apply a lightbox plugin to use the data-highres
+           Load a sparkling unicorn animated GIF
+        */
+    }
+});
+</code></pre>
 
 			<h2>Installation</h2>
 
@@ -160,9 +165,19 @@
 			<p>Makin frankfurter ker relaxern corkin kaboodle strudel hinder dorkin, uber kaputt der underbite poken. Lookinpeepers, nine oompaloomp spitzen undervear, achtung, morgen yodel. Buerger und flippin spitzen ya das.</p>
      	</div>
 
-	  
+
 		<footer>
-			<p>Created by <a href="http://jonathanmoore.com">Jonathan Moore</a></p>
+			<div class="third-split">
+				<a href="http://stylehatch.co" class="button">Browse Our Themes</a>
+			</div>
+			<div class="third-split">
+				<p><i>We are a digital shop creating unique premium Tumblr themes.</i></p>
+			</div>
+			<div class="third-split question">
+				<h5>Have a question?</h5>
+				<a href="https://twitter.com/intent/tweet?screen_name=stylehatch" class="twitter-mention-button" data-lang="en">Tweet to @stylehatch</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 		</footer>
 	</div>
 
@@ -184,7 +199,7 @@
 	</script>
 
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	
+
 
 </body>
 </html>

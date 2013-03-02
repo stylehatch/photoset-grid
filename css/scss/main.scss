@@ -5,6 +5,8 @@
 // COLORS
 $darkBlue: #293037;
 $medBlue: #71767d;
+$popBlue: #0fb9e6;
+$popBlueShadow: #0e7792;
 $white: #ffffff;
 $grey: #f1f2f3;
 $black: #252b31;
@@ -53,10 +55,46 @@ h5 {
   color: $medBlue;
 }
 
+a {
+  color: $popBlue;
+  &:hover, &:active {
+    color: darken($popBlue, 15%);
+  }
+  &:visited {
+    color: darken($popBlue, 15%);
+  }
+}
+
+a.button {
+  display: inline-block;
+  float: left;
+  font-family: $altFont;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $white;
+  background: $popBlue;
+  padding:1em 0.75em 0.75em 0.75em;
+  text-decoration: none;
+  text-shadow: $popBlueShadow 1px 1px 1px;
+  border-radius: 0.3em;
+  -moz-box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+// Page Header
+header.page-head {
+  text-align: center;
+  margin-top: 2.5em;
+  img {
+    max-width: 10.95em;
+  }
+}
+
 // Main Page Container
 #container {
   max-width: 51.9em;        // 830px
-  margin: 2.5em auto;       // 40px
+  margin: 1em auto 2.5em auto;       // 40px
   padding: 1.25em 2.5em;    // 20px, 40px
   background-color: $white;
   border-radius: 0.6em;
@@ -85,16 +123,27 @@ h5 {
   }
 
   footer {
+    @include clearfix;
     background-color: $grey;
     // reset footer margin & padding so that bg color reaches edge of container
     margin: 1em -2.5em -1.25em -2.5em;
     padding: 1.25em 2.5em;
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
-    p {
+    p, h5 {
       margin: 0;
+      color: $darkBlue;
+    }
+    div.question {
+      text-align: right;
     }
   }
+}
+
+// 1/3 Split Containers
+div.third-split {
+  width: 33%;
+  float: left;
 }
 
 // Photoset Grid Demos
@@ -132,6 +181,44 @@ pre {
     width: 214px !important;
   }
 }
+
+/* Tomorrow Night Blue Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+.tomorrow-comment, pre .comment, pre .title {
+  color: #7285b7;
+}
+
+.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #ff9da4;
+}
+
+.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #ffc58f;
+}
+
+.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #ffeead;
+}
+
+.tomorrow-green, pre .string, pre .value, pre .tag .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #d1f1a9;
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: #99ffff;
+}
+
+.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #bbdaff;
+}
+
+.tomorrow-purple, pre .keyword, pre .javascript .function {
+  color: #ebbbff;
+}
+
 
 /*
   Bryant-Web
