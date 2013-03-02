@@ -12,11 +12,11 @@ $legacy_support_for_ie: true !default; // Used also in Compass
 
 
 // Set the default font family here so you don't have to override it later
-$normalized_font_family: sans-serif !default;
+$normalized_font_family: "locator-web", sans-serif !default;
 
 $normalize_headings: true !default;
 
-$h1_font_size: 2em !default;
+$h1_font_size: 3em !default;
 $h2_font_size: 1.5em !default;
 $h3_font_size: 1.17em !default;
 $h4_font_size: 1em !default;
