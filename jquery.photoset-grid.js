@@ -17,7 +17,7 @@
     defaults = {
       width         : '100%',
       gutter        : '0px',            
-      highresLinks  : true,
+      highresLinks  : false,
       lowresWidth   : 500,
 
       // Call back events
