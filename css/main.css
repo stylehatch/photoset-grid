@@ -277,6 +277,7 @@ code {
 
 pre {
   display: block;
+  margin: 0 0 1.5em 0;
   background: #293037;
   color: #f1f2f3;
   font-size: 0.9em; }
