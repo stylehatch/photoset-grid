@@ -3,7 +3,7 @@
 // =============================================================================
 
 // COLORS
-$darkBlue: #22282e;
+$darkBlue: #293037;
 $medBlue: #71767d;
 $white: #ffffff;
 $grey: #f1f2f3;
@@ -25,7 +25,7 @@ p {
 }
 
 body {
-	background-color: $darkBlue;
+  background: $darkBlue url(../img/bg-wood-texture.jpg) 0 0 repeat;
   font-family: $bodyFont;
 }
 

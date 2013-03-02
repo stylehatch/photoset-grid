@@ -229,12 +229,12 @@ p {
   margin-top: 0; }
 
 body {
-  background-color: #22282e;
+  background: #293037 url(../img/bg-wood-texture.jpg) 0 0 repeat;
   font-family: "locator-web", sans-serif; }
 
 h1, h2, h3, h4, h5 {
   line-height: 1.2;
-  color: #22282e;
+  color: #293037;
   margin-bottom: 0.33em; }
 
 h1 {
