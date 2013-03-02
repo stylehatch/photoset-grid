@@ -270,14 +270,16 @@ div.photoset-grid, div.photoset-grid-alt {
 
 code {
   display: inline-block;
-  padding: 0 0.25em;
+  padding: 0 0.35em;
   color: #293037;
-  background: #f1f2f3; }
+  background: #f1f2f3;
+  font-size: 0.9em; }
 
 pre {
   display: block;
   background: #293037;
-  color: #f1f2f3; }
+  color: #f1f2f3;
+  font-size: 0.9em; }
   pre code {
     background: inherit;
     color: inherit; }

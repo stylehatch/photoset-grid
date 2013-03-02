@@ -80,15 +80,17 @@ div.photoset-grid, div.photoset-grid-alt {
 // Code Snippets
 code {
   display: inline-block;
-  padding: 0 0.25em;
+  padding: 0 0.35em;
   color: $darkBlue;
   background: $grey;
+  font-size: 0.9em;
 }
 
 pre {
   display: block;
   background: $darkBlue;
   color: $grey;
+  font-size: 0.9em;
   code {
     background: inherit;
     color: inherit;
