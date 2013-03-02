@@ -230,7 +230,8 @@ p {
 
 body {
   background: #293037 url(../img/bg-wood-texture.jpg) 0 0 repeat;
-  font-family: "locator-web", sans-serif; }
+  font-family: "locator-web", sans-serif;
+  color: #252b31; }
 
 h1, h2, h3, h4, h5 {
   line-height: 1.2;
