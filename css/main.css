@@ -304,6 +304,7 @@ header.page-head {
     margin: 0 -2.5em; }
     @media (max-width: 525px) {
       #container header {
+        padding: 0 1.25em 1.875em 1.25em;
         margin: 0 -1.25em; } }
     #container header h1 {
       margin: 0.4em 0 0; }
