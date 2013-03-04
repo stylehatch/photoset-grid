@@ -67,6 +67,7 @@ a {
 
 a.button {
   display: inline-block;
+  position: relative;
   float: left;
   font-family: $altFont;
   font-weight: 700;
@@ -77,9 +78,11 @@ a.button {
   text-decoration: none;
   text-shadow: $popBlueShadow 1px 1px 1px;
   border-radius: 0.3em;
-  -moz-box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 0 3px $popBlueShadow, 0 5px 2px rgba(0, 0, 0, 0.25);
+  &:active {
+    box-shadow: 0 1px $popBlueShadow, 0 2px 1px rgba(0, 0, 0, 0.25);
+    top: 2px;
+  }
 }
 
 // Page Header

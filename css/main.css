@@ -260,6 +260,7 @@ a {
 
 a.button {
   display: inline-block;
+  position: relative;
   float: left;
   font-family: "bryant-web", sans-serif;
   font-weight: 700;
@@ -270,9 +271,10 @@ a.button {
   text-decoration: none;
   text-shadow: #0e7792 1px 1px 1px;
   border-radius: 0.3em;
-  -moz-box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25); }
+  a.button:active {
+    box-shadow: 0 1px #0e7792, 0 2px 1px rgba(0, 0, 0, 0.25);
+    top: 2px; }
 
 header.page-head {
   text-align: center;
