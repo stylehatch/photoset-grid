@@ -267,6 +267,7 @@ a {
 a.button {
   display: inline-block;
   position: relative;
+  text-align: center;
   float: left;
   font-family: "bryant-web", sans-serif;
   font-weight: 700;
@@ -294,10 +295,16 @@ header.page-head {
   padding: 1.25em 2.5em;
   background-color: white;
   border-radius: 0.6em; }
+  @media (max-width: 525px) {
+    #container {
+      padding: 1.25em; } }
   #container header {
     background: url(../img/header-div.png) bottom left repeat-x;
-    padding: 0 2.5em 30px;
+    padding: 0 2.5em 1.875em;
     margin: 0 -2.5em; }
+    @media (max-width: 525px) {
+      #container header {
+        margin: 0 -1.25em; } }
     #container header h1 {
       margin: 0.4em 0 0; }
     #container header h5 {
@@ -327,6 +334,9 @@ header.page-head {
       display: table; }
     #container footer:after {
       clear: both; }
+    @media (max-width: 525px) {
+      #container footer {
+        margin: 1em -1.25em -1.25em -1.25em; } }
     #container footer p, #container footer h5 {
       margin: 0;
       color: #293037; }

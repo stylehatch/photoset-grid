@@ -71,6 +71,7 @@ a {
 a.button {
   display: inline-block;
   position: relative;
+  text-align: center;
   float: left;
   font-family: $altFont;
   font-weight: 700;
@@ -104,10 +105,16 @@ header.page-head {
   padding: 1.25em 2.5em;    // 20px, 40px
   background-color: $white;
   border-radius: 0.6em;
+  @media (max-width: 525px) {
+    padding: 1.25em;
+  }
   header {
     background: url(../img/header-div.png) bottom left repeat-x;
-    padding: 0 2.5em 30px;
+    padding: 0 2.5em 1.875em;  // 40px, 30px
     margin: 0 -2.5em;
+    @media (max-width: 525px) {
+      margin: 0 -1.25em;
+    }
     h1 {
       margin: .4em 0 0;
     }
@@ -136,6 +143,9 @@ header.page-head {
     padding: 1.25em 2.5em;
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
+    @media (max-width: 525px) {
+      margin: 1em -1.25em -1.25em -1.25em;
+    }
     p, h5 {
       margin: 0;
       color: $darkBlue;
