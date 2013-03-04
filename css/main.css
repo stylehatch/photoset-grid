@@ -222,6 +222,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* apply a natural box layout model to all elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   line-height: 1.5; }
 
@@ -324,12 +330,27 @@ header.page-head {
     #container footer p, #container footer h5 {
       margin: 0;
       color: #293037; }
+    #container footer div.browse-themes {
+      float: left;
+      width: 70%;
+      padding-right: 1em; }
+      #container footer div.browse-themes a.button {
+        margin-right: 1.5em; }
+      @media (max-width: 720px) {
+        #container footer div.browse-themes {
+          width: 100%; } }
+      @media (max-width: 525px) {
+        #container footer div.browse-themes a.button {
+          display: block;
+          width: 100%;
+          margin-bottom: 1.25em; } }
     #container footer div.question {
+      float: left;
+      width: 30%;
       text-align: right; }
-
-div.third-split {
-  width: 33%;
-  float: left; }
+      @media (max-width: 720px) {
+        #container footer div.question {
+          display: none; } }
 
 div.photoset-grid, div.photoset-grid-alt {
   margin: 2em 0 3em 0; }
