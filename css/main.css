@@ -337,6 +337,7 @@ header.page-head {
       clear: both; }
     @media (max-width: 525px) {
       #container footer {
+        padding: 1.25em;
         margin: 1em -1.25em -1.25em -1.25em; } }
     #container footer p, #container footer h5 {
       margin: 0;
@@ -349,7 +350,8 @@ header.page-head {
         margin-right: 1.5em; }
       @media (max-width: 720px) {
         #container footer div.browse-themes {
-          width: 100%; } }
+          width: 100%;
+          padding-right: 0; } }
       @media (max-width: 525px) {
         #container footer div.browse-themes a.button {
           display: block;
