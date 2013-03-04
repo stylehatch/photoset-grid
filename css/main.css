@@ -222,6 +222,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* apply a natural box layout model to all elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   line-height: 1.5; }
 
@@ -260,6 +266,8 @@ a {
 
 a.button {
   display: inline-block;
+  position: relative;
+  text-align: center;
   float: left;
   font-family: "bryant-web", sans-serif;
   font-weight: 700;
@@ -270,9 +278,10 @@ a.button {
   text-decoration: none;
   text-shadow: #0e7792 1px 1px 1px;
   border-radius: 0.3em;
-  -moz-box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 0 3px #0e7792, 0 5px 2px rgba(0, 0, 0, 0.25); }
+  a.button:active {
+    box-shadow: 0 1px #0e7792, 0 2px 1px rgba(0, 0, 0, 0.25);
+    top: 2px; }
 
 header.page-head {
   text-align: center;
@@ -286,10 +295,16 @@ header.page-head {
   padding: 1.25em 2.5em;
   background-color: white;
   border-radius: 0.6em; }
+  @media (max-width: 525px) {
+    #container {
+      padding: 1.25em; } }
   #container header {
     background: url(../img/header-div.png) bottom left repeat-x;
-    padding: 0 2.5em 30px;
+    padding: 0 2.5em 1.875em;
     margin: 0 -2.5em; }
+    @media (max-width: 525px) {
+      #container header {
+        margin: 0 -1.25em; } }
     #container header h1 {
       margin: 0.4em 0 0; }
     #container header h5 {
@@ -319,15 +334,33 @@ header.page-head {
       display: table; }
     #container footer:after {
       clear: both; }
+    @media (max-width: 525px) {
+      #container footer {
+        margin: 1em -1.25em -1.25em -1.25em; } }
     #container footer p, #container footer h5 {
       margin: 0;
       color: #293037; }
+    #container footer div.browse-themes {
+      float: left;
+      width: 70%;
+      padding-right: 1em; }
+      #container footer div.browse-themes a.button {
+        margin-right: 1.5em; }
+      @media (max-width: 720px) {
+        #container footer div.browse-themes {
+          width: 100%; } }
+      @media (max-width: 525px) {
+        #container footer div.browse-themes a.button {
+          display: block;
+          width: 100%;
+          margin-bottom: 1.25em; } }
     #container footer div.question {
+      float: left;
+      width: 30%;
       text-align: right; }
-
-div.third-split {
-  width: 33%;
-  float: left; }
+      @media (max-width: 720px) {
+        #container footer div.question {
+          display: none; } }
 
 div.photoset-grid, div.photoset-grid-alt {
   margin: 2em 0 3em 0; }
