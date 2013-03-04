@@ -145,6 +145,7 @@ header.page-head {
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
     @media (max-width: 525px) {
+      padding: 1.25em;
       margin: 1em -1.25em -1.25em -1.25em;
     }
     p, h5 {
@@ -161,6 +162,7 @@ header.page-head {
       // full width now that the questions div is hidden
       @media (max-width: 720px) {
         width: 100%;
+        padding-right: 0;
       }
       // split button and paragraph onto two separate lines at 100%
       @media (max-width: 525px) {
