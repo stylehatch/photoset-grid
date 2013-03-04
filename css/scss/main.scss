@@ -113,6 +113,7 @@ header.page-head {
     padding: 0 2.5em 1.875em;  // 40px, 30px
     margin: 0 -2.5em;
     @media (max-width: 525px) {
+      padding: 0 1.25em 1.875em 1.25em;
       margin: 0 -1.25em;
     }
     h1 {
