@@ -363,7 +363,7 @@ header.page-head {
       float: left;
       width: 30%;
       text-align: right;
-      padding-top: 0.45em; }
+      padding-top: 0.5em; }
       @media (max-width: 720px) {
         #container footer div.question {
           display: none; } }
