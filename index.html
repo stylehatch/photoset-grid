@@ -46,17 +46,21 @@
 			<p>A simple jQuery plugin to arrange images into a flexible grid, based on Tumblr's photoset feature. Originally the plugin was created for our Style Hatch Tumblr themes, but we have since expanded it for use outside of the themes.</p>
 
 			<h2>Demo</h2>
-
-			<p>View the <a href="http://stylehatch.github.com/photoset-grid">photoset grid Github page</a> for all the examples or jump straight to the following demos:</p>
-
-			<ul>
-			<li><a href="http://stylehatch.github.com/photoset-grid#demo-basic-usage">Basic usage</a></li>
-			<li><a href="http://stylehatch.github.com/photoset-grid#demo-custom-options">Custom options</a></li>
-			<li><a href="http://stylehatch.github.com/photoset-grid#demo-tumblr">Using photoset grid in a Tumblr theme</a></li>
-			<li><a href="http://stylehatch.github.com/photoset-grid#demo-lightbox">Adding a lightbox viewer</a></li>
-			</ul>
-
-
+      <h5>Grid 1-3 Layout</h5>
+      <div class="photoset-grid" data-layout="13">
+        <img src="http://www.placecage.com/c/900/400">
+        <img src="http://www.placecage.com/c/300/300">
+        <img src="http://www.placecage.com/c/300/200">
+        <img src="http://www.placecage.com/300/150">
+      </div>
+      <h5>Grid 5 Acros Layout</h5>
+      <div class="photoset-grid-alt" data-layout="5">
+        <img src="http://www.placecage.com/c/500/200">
+        <img src="http://www.placecage.com/300/300">
+        <img src="http://www.placecage.com/300/200">
+        <img src="http://www.placecage.com/150/250">
+        <img src="http://www.placecage.com/c/450/200">
+      </div>
 			<h2>Usage</h2>
 
 			<p>Apply the photo set grid layout to a selected <code>div</code> containing images for the grid.</p>
@@ -187,7 +191,7 @@
 
 	$('.photoset-grid').photosetGrid({
 		gutter: '5px',
-		layout: '5',
+		layout: '13',
 		highresLinks: true,
 
 		onComplete: function(){}
