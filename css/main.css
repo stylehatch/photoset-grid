@@ -346,6 +346,8 @@ header.page-head {
       float: left;
       width: 70%;
       padding-right: 1em; }
+      #container footer div.browse-themes p {
+        padding-top: 0.2em; }
       #container footer div.browse-themes a.button {
         margin-right: 1.5em; }
       @media (max-width: 720px) {
@@ -360,7 +362,8 @@ header.page-head {
     #container footer div.question {
       float: left;
       width: 30%;
-      text-align: right; }
+      text-align: right;
+      padding-top: 0.45em; }
       @media (max-width: 720px) {
         #container footer div.question {
           display: none; } }

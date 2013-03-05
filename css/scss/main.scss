@@ -156,6 +156,10 @@ header.page-head {
       float: left;
       width: 70%;
       padding-right: 1em;
+      // align paragraph to center of button
+      p {
+        padding-top: 0.2em;
+      }
       a.button {
         margin-right: 1.5em;
       }
@@ -177,6 +181,8 @@ header.page-head {
       float: left;
       width: 30%;
       text-align: right;
+      // align div to center of button
+      padding-top: 0.45em;
       // hide question section at smaller viewport
       @media (max-width: 720px) {
         display: none;
