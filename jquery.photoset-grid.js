@@ -15,10 +15,19 @@
   // Plugin name and default settings
   var pluginName = "photosetGrid",
     defaults = {
+      // Required
+      // set the width of the container
       width         : '100%',
-      gutter        : '0px',            
+      // the space between the rows / columns
+      gutter        : '0px',
+
+      // Optional
+      // wrap the images in a vs. div and link to the data-highres images
       highresLinks  : false,
+      // threshold for the lowres image, if container is > swap the data-highres
       lowresWidth   : 500,
+      // relational attr to apply to the links for lightbox use
+      rel           : '',
 
       // Call back events
       onInit        : function(){},
@@ -118,6 +127,12 @@
               }
               $(this).wrapAll('<a href="' + highres + '" class="photoset-cell highres-link" />');
             });
+
+            // Apply the optional rel
+            if(options.rel){
+              $images.parent().attr('rel', options.rel);
+            }
+
           } else {
             $images.each(function(){
               $(this).wrapAll('<div class="photoset-cell" />');
@@ -213,7 +228,7 @@
 
         $(elem).imagesLoaded(function(){
           setupStyles();
-          
+
           // Call _callback which calls the optional onComplete
           $this._callback();
         });
