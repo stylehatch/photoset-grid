@@ -370,6 +370,8 @@ header.page-head {
 
 div.photoset-grid, div.photoset-grid-alt {
   margin: 0 0 3em 0; }
+  div.photoset-grid img, div.photoset-grid-alt img {
+    max-width: 100%; }
 
 code {
   display: inline-block;

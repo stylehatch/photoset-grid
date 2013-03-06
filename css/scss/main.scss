@@ -194,6 +194,10 @@ header.page-head {
 // Photoset Grid Demos
 div.photoset-grid, div.photoset-grid-alt {
   margin: 0 0 3em 0;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 // Code Snippets
