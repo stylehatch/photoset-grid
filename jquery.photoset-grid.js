@@ -44,7 +44,10 @@
 
         this._setupRows(this.element, this.options);
         this._setupColumns(this.element, this.options);
+        
+      },
 
+      _callback: function(){
         // Call the optional onComplete event after the plugin has been completed
         this.options.onComplete();
       },
@@ -94,6 +97,9 @@
       },
 
       _setupColumns: function(  elem, options ){
+
+        // Reference to this Plugin
+        var $this = this;
 
         var setupStyles = function(){
           var $rows = $(elem).find('.photoset-row');
@@ -207,6 +213,9 @@
 
         $(elem).imagesLoaded(function(){
           setupStyles();
+          
+          // Call _callback which calls the optional onComplete
+          $this._callback();
         });
       }
 
