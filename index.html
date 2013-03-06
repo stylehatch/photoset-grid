@@ -17,6 +17,7 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 
 	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/colorbox.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
@@ -192,6 +193,7 @@
 
 
 	<script src="jquery.photoset-grid.js"></script>
+	<script src="js/jquery.colorbox.js"></script>
 	<script type="text/javascript">
 
 	// Photoset Grid
@@ -200,13 +202,32 @@
 		gutter: '5px',
 		layout: '22',
 		highresLinks: true,
+		rel: 'wall-of-nick',
 
 		onComplete: function(){
-			
+			$('.photoset-grid a').colorbox({
+				photo: true,
+				scalePhotos: true,
+                maxHeight:'90%',
+                maxWidth:'90%'
+			});
 		}
 	});
 
-	$('.photoset-grid-alt').photosetGrid();
+	//$('.photoset-grid-alt').photosetGrid();
+	$('.photoset-grid-alt').photosetGrid({
+		highresLinks: true,
+		rel: 'more-nicks',
+
+		onComplete: function(){
+			$('.photoset-grid-alt a').colorbox({
+				photo: true,
+				scalePhotos: true,
+                maxHeight:'90%',
+                maxWidth:'90%'
+			});
+		}
+	});
 	</script>
 
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
