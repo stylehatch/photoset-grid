@@ -1,6 +1,6 @@
 /**
- * photoset-grid - v0.9.0
- * 2013-02-28
+ * photoset-grid - v0.9.9
+ * 2013-03-06
  * Arrange images into a flexible grid, based on Tumblr's photoset feature.
  * http://stylehatch.github.com/photoset-grid/
  *

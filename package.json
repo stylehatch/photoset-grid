@@ -1,6 +1,6 @@
 {
   "name": "photoset-grid",
-  "version": "0.9.0",
+  "version": "0.9.9",
   "description": "Arrange images into a flexible grid, based on Tumblr's photoset feature.",
   "author": "Jonathan Moore - Style Hatch",
   "repository": {
