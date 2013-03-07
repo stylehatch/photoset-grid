@@ -189,33 +189,39 @@
 
           function resizePhotosetGrid(){
 
-            $rows.each(function(){
-              var $shortestImg = $(this).find('img:eq(0)');
+            // Give the values a floor to prevent misfires
+            var w = $(elem).width().toString();
 
-              $(this).find('img').each(function(){
-                var $img = $(this);
-                if( $img.height() < $shortestImg.height() ){
-                    $shortestImg = $(this);
-                }
+            if( w !== $(elem).attr('data-width') ) {
+              $rows.each(function(){
+                var $shortestImg = $(this).find('img:eq(0)');
 
-                if($img.width() > options.lowresWidth && $img.attr('data-highres')){
-                    $img.attr('src', $img.attr('data-highres'));
-                }
-              });
+                $(this).find('img').each(function(){
+                  var $img = $(this);
+                  if( $img.height() < $shortestImg.height() ){
+                      $shortestImg = $(this);
+                  }
 
-              var rowHeight = $shortestImg.height();
-              // Adding a buffer to shave off a few pixels in height
-              var bufferHeight = Math.floor(rowHeight * 0.025);
-              $(this).height( rowHeight - bufferHeight );
-
-              $(this).find('img').each(function(){
-                var marginOffset = ((rowHeight - $(this).height())*0.5) + 'px';
-                $(this).css({
-                  'margin-top' : marginOffset
+                  if($img.width() > options.lowresWidth && $img.attr('data-highres')){
+                      $img.attr('src', $img.attr('data-highres'));
+                  }
                 });
-              });
 
-            });
+                var rowHeight = $shortestImg.height();
+                // Adding a buffer to shave off a few pixels in height
+                var bufferHeight = Math.floor(rowHeight * 0.025);
+                $(this).height( rowHeight - bufferHeight );
+
+                $(this).find('img').each(function(){
+                  var marginOffset = ((rowHeight - $(this).height())*0.5) + 'px';
+                  $(this).css({
+                    'margin-top' : marginOffset
+                  });
+                });
+
+              });
+              $(elem).attr('data-width', w );
+            } 
 
           }
           resizePhotosetGrid();
