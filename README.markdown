@@ -91,15 +91,8 @@ You can easily install photoset-grid as a [Bower](https://github.com/twitter/bow
 
 ## Credits
 
-* **Jonathan Moore**
-	* [twitter.com/moore](http://twitter.com/moore)
-	* [github.com/jonathanmoore](http://github.com/jonathanmoore)
-	* [jonathanmoore.com](http://jonathanmoore.com)
-
-* **Mikey Wills**
-	* [twitter.com/mukealicious](https://twitter.com/mukealicious)
-	* [github.com/mukealicious](https://github.com/mukealicious)
-	* [muke.me](http://muke.me)
-	
-*Additional* - @desandro - [desandro/imagesloaded](https://github.com/desandro/imagesloaded)
-@louisremi - [louisremi/jquery-smartresize](https://github.com/louisremi/jquery-smartresize)
+* [Jonathan Moore](http://github.com/jonathanmoore) - *[@moore](http://twitter.com/moore) | [jonathanmoore.com](http://jonathanmoore.com)*
+* [Mikey Wills](http://muke.me) - *[@mukealicious](https://twitter.com/mukealicious) | [muke.me](http://muke.me)*
+* *Additional*
+	* David DeSandro - [desandro/imagesloaded](https://github.com/desandro/imagesloaded)
+	* Louis-Rémi Babé - [louisremi/jquery-smartresize](https://github.com/louisremi/jquery-smartresize)
