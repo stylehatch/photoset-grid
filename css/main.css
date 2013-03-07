@@ -251,11 +251,33 @@ h1 {
 h2, h3, h4 {
   font-weight: 700; }
 
+h2 {
+  border-bottom: 1px solid #f1f2f3;
+  margin: 2em 0 1em;
+  padding-bottom: 0.2em; }
+
+h3 {
+  font-family: "bryant-web", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #71767d; }
+
 h5 {
   font-family: "bryant-web", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   color: #71767d; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #f1f2f3;
+  margin: 3em 0 2em;
+  padding: 0; }
+
+ul ul {
+  margin: 0; }
 
 a {
   color: #0fb9e6; }
@@ -326,7 +348,7 @@ header.page-head {
   #container footer {
     *zoom: 1;
     background-color: #f1f2f3;
-    margin: 1em -2.5em -1.25em -2.5em;
+    margin: 2em -2.5em -1.25em -2.5em;
     padding: 1.25em 2.5em;
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em; }
@@ -368,11 +390,17 @@ header.page-head {
         #container footer div.question {
           display: none; } }
 
-div.photoset-grid, div.photoset-grid-alt {
-  margin: 0 0 3em 0; }
-  div.photoset-grid a:focus, div.photoset-grid-alt a:focus {
+div.photoset-grid-basic,
+div.photoset-grid-custom,
+div.photoset-grid-lightbox {
+  margin: 0 0 2em 0; }
+  div.photoset-grid-basic a:focus,
+  div.photoset-grid-custom a:focus,
+  div.photoset-grid-lightbox a:focus {
     outline: none; }
-  div.photoset-grid img, div.photoset-grid-alt img {
+  div.photoset-grid-basic img,
+  div.photoset-grid-custom img,
+  div.photoset-grid-lightbox img {
     max-width: 100%; }
 
 code {
