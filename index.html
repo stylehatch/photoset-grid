@@ -59,7 +59,7 @@
 
 			<h5>HTML:</h5>
 
-<pre><code>&lt;div class="photoset-grid-basic" data-layout="12"&gt;
+<pre><code class="html">&lt;div class="photoset-grid-basic" data-layout="12"&gt;
   &lt;src="img/demo/nyc1-500px.jpg" data-highres="img/demo/nyc1-highres.jpg"&gt;
   &lt;src="img/demo/nyc2-500px.jpg" data-highres="img/demo/nyc2-highres.jpg"&gt;
   &lt;src="img/demo/nyc3-500px.jpg" data-highres="img/demo/nyc3-highres.jpg"&gt;
@@ -83,7 +83,7 @@
 			<p>Beyond the basic usage, you can set a number of optional arguments including callback functions that are useful for adding a lightbox for high resolution images.</p>
 			<h5>HTML:</h5>
 
-<pre><code>&lt;div class="photoset-grid-custom" style="visibility: hidden;"&gt;
+<pre><code class="html">&lt;div class="photoset-grid-custom" style="visibility: hidden;"&gt;
   &lt;src="img/demo/print1-500px.jpg" data-highres="img/demo/print1-highres.jpg"&gt;
   &lt;src="img/demo/print2-500px.jpg" data-highres="img/demo/print2-highres.jpg"&gt;
   &lt;src="img/demo/print3-500px.jpg" data-highres="img/demo/print3-highres.jpg"&gt;
@@ -91,7 +91,7 @@
 
 			<h5>Javascript:</h5>
 
-<pre><code>$('.photoset-grid-custom').photosetGrid({
+<pre><code class="javascript">$('.photoset-grid-custom').photosetGrid({
   // Set the gutter between columns and rows
   gutter: '5px',
   // Manually set the grid layout
@@ -100,7 +100,7 @@
   highresLinks: true,
   // Asign a common rel attribute
   rel: 'print-gallery',
-  
+
   onInit: function(){},
   onComplete: function(){
     // Show the grid after it renders
@@ -125,7 +125,7 @@
 
 			<h5>HTML:</h5>
 
-<pre><code>&lt;div class="photoset-grid-lightbox" data-layout="131" style="visibility: hidden;"&gt;
+<pre><code class="html">&lt;div class="photoset-grid-lightbox" data-layout="131" style="visibility: hidden;"&gt;
   &lt;src="img/demo/withhearts1-500px.jpg" data-highres="img/demo/withhearts1-highres.jpg"&gt;
   &lt;src="img/demo/withhearts2-500px.jpg" data-highres="img/demo/withhearts2-highres.jpg"&gt;
   &lt;src="img/demo/withhearts3-500px.jpg" data-highres="img/demo/withhearts3-highres.jpg"&gt;
@@ -135,7 +135,7 @@
 
 			<h5>Javascript:</h5>
 
-<pre><code>$('.photoset-grid-lightbox').photosetGrid({
+<pre><code class="javascript">$('.photoset-grid-lightbox').photosetGrid({
   highresLinks: true,
   rel: 'withhearts-gallery',
   gutter: '2px',
@@ -160,7 +160,7 @@
 
 			<h5>HTML:</h5>
 
-<pre><code>{block:Photoset}
+<pre><code class="html">{block:Photoset}
   &lt;div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}"&gt;
     {block:Photos}
       &lt;img src="{PhotoURL-500}"
@@ -176,7 +176,7 @@
 
 			<h5>Javascript:</h5>
 
-<pre><code>$('.photoset-grid').photosetGrid({
+<pre><code class="javascript">$('.photoset-grid').photosetGrid({
   highresLinks: true,
   rel: $('.photoset-grid').attr('data-id'),
   gutter: '5px',
@@ -218,7 +218,7 @@
 
 			<p>You can easily install photoset-grid as a <a href="https://github.com/twitter/bower">Bower</a> package by running:</p>
 
-			<pre><code>$ bower install photoset-grid</code></pre>
+			<pre><code class="no-highlight">$ bower install photoset-grid</code></pre>
 
 			<h2>Credits</h2>
 
@@ -226,7 +226,7 @@
 			<li><a href="http://github.com/jonathanmoore">Jonathan Moore</a> - <em><a href="http://twitter.com/moore">@moore</a> | <a href="http://jonathanmoore.com">jonathanmoore.com</a></em></li>
 			<li><a href="http://muke.me">Mikey Wills</a> - <em><a href="https://twitter.com/mukealicious">@mukealicious</a> | <a href="http://muke.me">muke.me</a></em></li>
 			<li><em>Additional</em>
-			
+
 			<li><em>Additional</em>
 				<ul>
 					<li><a href="https://github.com/Darsain">Thomas Sardyha</a> &amp; <a href="https://github.com/desandro/">David DeSandro</a> - <a href="https://github.com/desandro/imagesloaded">desandro/imagesloaded</a></li>
