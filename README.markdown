@@ -1,6 +1,6 @@
 # Photoset Grid
 
-A simple jQuery plugin to arrange images into a flexible grid, based on Tumblr's photoset feature. Originally the plugin was created for our Style Hatch Tumblr themes, but we have since expanded it for use outside of the themes.
+A simple jQuery plugin to arrange images into a flexible grid, based on Tumblr's photoset feature. Originally the plugin was created for our [Style Hatch](http://stylehatch.co) Tumblr themes as a way to use the photoset grid in responsive layouts, but we have since expanded it for use outside of the themes.
 
 ## Demo
 
@@ -8,8 +8,8 @@ View the [photoset grid Github page](http://stylehatch.github.com/photoset-grid)
 
 - [Basic usage](http://stylehatch.github.com/photoset-grid#demo-basic-usage)
 - [Custom options](http://stylehatch.github.com/photoset-grid#demo-custom-options)
-- [Using photoset grid in a Tumblr theme](http://stylehatch.github.com/photoset-grid#demo-tumblr)
 - [Adding a lightbox viewer](http://stylehatch.github.com/photoset-grid#demo-lightbox)
+- [Using photoset grid in a Tumblr theme](http://stylehatch.github.com/photoset-grid#demo-tumblr)
 
 ## Usage
 
@@ -17,7 +17,7 @@ Apply the photo set grid layout to a selected `div` containing images for the gr
 
 The only markup requirement is a `data-layout` attribute on the selected `div`. `data-layout` should contain a string of numbers representing the number of columns for each row. 
 
-**For example:**
+**Understanding data-layout:**
 
 - `data-layout="2331"` 1st row has 2 images, 2nd row has 3 images, 3rd row has 3 images, and 4th row has 1 image. Total of 9 images.
 - `data-layout="13"` 1st row has 1 image and 2nd row has 3 images.
@@ -47,11 +47,12 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 - `gutter` - `string` Set the pixel width between the columns and rows. Default: `0px`
 - `highresLinks` - `boolean` Set to `true` to automatically swap out the default image `src` with the `data-highres` attribute once the image is wider than `lowresWidth`. This will also wrap each image with an `a` vs. `div` element. Default: `false`
 - `lowresWidth` - `number` Sets the width where the default image is swapped out for the high resolution image. Default: `500`
+- `rel` - `string` This optional setting useful for lightbox viewers applies a common `rel` attribute to the anchor tags wrapping the images.
 - `onInit` - `function` Define a function to be called when the plugin is initialized.
 - `onComplete` - `function` Define a function to be called when the plugin has completed the grid layout.
 
 ##### HTML:
-	<div class="photoset-grid">
+	<div class="photoset-grid" style="visibility: hidden;">
 		<img src="image1.jpg" data-highres="highres-image1.jpg">
 		<img src="image2.jpg" data-highres="highres-image2.jpg">
 		<img src="image3.jpg" data-highres="highres-image3.jpg">
@@ -68,16 +69,15 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 		gutter: '5px',
 		highresLinks: true,
 		lowresWidth: 300,
+		rel: 'gallery-01',
 		
-		onInit: function(){
-			// Do something when the plugin is initialized
-		},
+		onInit: function(){},
 		onComplete: function(){
-			/* Possible uses…
-			   Set visibility: visible after the grid renders
-			   Apply a lightbox plugin to use the data-highres
-			   Load a sparkling unicorn animated GIF
-			*/
+		
+			$('.photoset-grid').css({
+				'visiblity': 'visible'
+			});
+			
 		}
 	});
 
@@ -85,25 +85,14 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 
 **Bower package manager**
 
-Dorkin poken, `$ bower install photoset-grid` in wunderbar morgen buerger.
+You can easily install photoset-grid as a [Bower](https://github.com/twitter/bower) package by running:
 
-**Download and install**
-Underbite wunderbar stein oompaloomp kaboodle stein pukein, undervear heiden achtung. Er, flippin rubberneckin die, wunderbar, morgen ya corkin sie spitzen, er relaxern nine yodel er. 
+	$ bower install photoset-grid
 
-## Author
+## Credits
 
-**Jonathan Moore**
-
-- [twitter.com/moore](http://twitter.com/moore)
-- [github.com/jonathanmoore](http://github.com/jonathanmoore)
-- [jonathanmoore.com](http://jonathanmoore.com)
-
-**Mikey Wills**
-
-- [twitter.com/mukealicious](https://twitter.com/mukealicious)
-- [github.com/mukealicious](https://github.com/mukealicious)
-- [muke.me](http://muke.me)
-
-## Copyright & License
-
-Makin frankfurter ker relaxern corkin kaboodle strudel hinder dorkin, uber kaputt der underbite poken. Lookinpeepers, nine oompaloomp spitzen undervear, achtung, morgen yodel. Buerger und flippin spitzen ya das. 
+* [Jonathan Moore](http://github.com/jonathanmoore) - *[@moore](http://twitter.com/moore) | [jonathanmoore.com](http://jonathanmoore.com)*
+* [Mikey Wills](http://muke.me) - *[@mukealicious](https://twitter.com/mukealicious) | [muke.me](http://muke.me)*
+* *Additional*
+	* David DeSandro - [desandro/imagesloaded](https://github.com/desandro/imagesloaded)
+	* Louis-Rémi Babé - [louisremi/jquery-smartresize](https://github.com/louisremi/jquery-smartresize)
