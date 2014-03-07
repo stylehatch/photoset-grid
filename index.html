@@ -164,7 +164,7 @@
   &lt;div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}"&gt;
     {block:Photos}
       &lt;img src="{PhotoURL-500}"
-        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+        {block:HighRes}data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"{/block:HighRes}
         {block:Caption}alt="{Caption}"{/block:caption} /&gt;
     {/block:Photos}
   &lt;/div&gt;
@@ -184,8 +184,30 @@
   onComplete: function(){});
   }
 });
-</code></pre>
 
+$('.photoset-grid').each(function(){
+  var imgs = $(this).find('img');
+  var array = [];
+  for(i=0; i&lt;imgs.length; i++) {
+    imgs.eq(i).attr('data-count',i+1);
+  } 
+  
+  /* For Tumblr Lightbox - see note */
+  $(this).find('img').each(function(){
+     var arrayPart = {
+        width: $(this).data('width'),
+        height: $(this).data('height'),
+        low_res: $(this).attr('src'),
+        high_res: $(this).data('highres')
+     };
+     array.push(arrayPart);
+     $(this).on('click',function(){
+         Tumblr.Lightbox.init(photosetPackage,$(this).data('count'));
+     });
+  });
+});
+</code></pre>
+			<p><strong>Note:</strong> The second block of JavaScript is optional: it allows you to use Tumblr's lightbox just as you see on normal Photosets. You might find this preferable to a dedicated lightbox plugin because it's so lightweight (Tumblr includes their own lightbox on all pages anyway.) It works just how you'd expect, with the lightbox opening on the clicked image and full keyboard navigation.
 
 			<h2>Usage</h2>
 			<p>Apply the photo set grid layout to a selected <code>div</code> containing images for the grid.</p>
