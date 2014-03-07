@@ -185,14 +185,13 @@
   }
 });
 
+/* For Tumblr Lightbox - see note */
 $('.photoset-grid').each(function(){
   var imgs = $(this).find('img');
   var array = [];
   for(i=0; i&lt;imgs.length; i++) {
     imgs.eq(i).attr('data-count',i+1);
   } 
-  
-  /* For Tumblr Lightbox - see note */
   $(this).find('img').each(function(){
      var arrayPart = {
         width: $(this).data('width'),
