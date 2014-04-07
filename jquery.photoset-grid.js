@@ -169,11 +169,11 @@
           });
 
           // Set the width of the cells based on the number of columns in the row
-          $cols1.css({ 'width': '100%' });
-          $cols2.css({ 'width': '50%' });
-          $cols3.css({ 'width': '33.3%' });
-          $cols4.css({ 'width': '25%' });
-          $cols5.css({ 'width': '20%' });
+          $cols1.css({ 'width': '100%' }).data("multiplier", 1);
+          $cols2.css({ 'width': '50%' }).data("multiplier", 0.5);
+          $cols3.css({ 'width': '33.3%' }).data("multiplier", 0.33);
+          $cols4.css({ 'width': '25%' }).data("multiplier", 0.25);
+          $cols5.css({ 'width': '20%' }).data("multiplier", 0.2);
 
 
           var gutterVal = parseInt(options.gutter, 10);
@@ -186,6 +186,22 @@
             'padding-left': (gutterVal / 2) + 'px'
           });
 
+          function getImageHeight(img, maxwidth){
+            // get image height based on data-width and data-height
+            // based on http://stackoverflow.com/questions/4590441/php-thumbnail-image-resizing-with-proportions
+            var width = $(img).data("width");
+            var height = $(img).data("height");
+
+            if(height > width){
+              /*ratio = maxheight / $height;  
+              newheight = $maxheight;
+              newwidth = $width * $ratio; */
+              return height;
+            } else{
+              var ratio = maxwidth / width;
+              return height * ratio;
+            }
+          }
 
           function resizePhotosetGrid(){
 
@@ -195,10 +211,12 @@
             if( w !== $(elem).attr('data-width') ) {
               $rows.each(function(){
                 var $shortestImg = $(this).find('img:eq(0)');
+                var multiplier = $($(".photoset-cell", this).get(0)).data("multiplier");
+                var mw = w * multiplier;
 
                 $(this).find('img').each(function(){
                   var $img = $(this);
-                  if( $img.height() < $shortestImg.height() ){
+                  if( getImageHeight($img, mw) < getImageHeight($shortestImg, mw) ){
                       $shortestImg = $(this);
                   }
 
@@ -207,13 +225,13 @@
                   }
                 });
 
-                var rowHeight = $shortestImg.height();
+                var rowHeight = getImageHeight($shortestImg, mw);
                 // Adding a buffer to shave off a few pixels in height
                 var bufferHeight = Math.floor(rowHeight * 0.025);
                 $(this).height( rowHeight - bufferHeight );
 
                 $(this).find('img').each(function(){
-                  var marginOffset = ((rowHeight - $(this).height())*0.5) + 'px';
+                  var marginOffset = ((rowHeight - getImageHeight(this))*0.5) + 'px';
                   $(this).css({
                     'margin-top' : marginOffset
                   });
@@ -232,12 +250,13 @@
 
         };
 
-        $(elem).imagesLoaded(function(){
+        setupStyles();
+        /*$(elem).imagesLoaded(function(){
           setupStyles();
 
           // Call _callback which calls the optional onComplete
           $this._callback();
-        });
+        });*/
       }
 
     };
