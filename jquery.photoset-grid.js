@@ -186,20 +186,22 @@
             'padding-left': (gutterVal / 2) + 'px'
           });
 
-          function getImageHeight(img, maxwidth, multiplier){
-            // get image height based on data-width and data-height
-            var width = $(img).data("width");
-            var height = $(img).data("height");
 
-            if(height > width){
-              /*ratio = maxheight / $height;  
-              newheight = $maxheight;
-              newwidth = $width * $ratio; */
-              return height * multiplier;
-            } else{
+          var getImageHeight = null;
+
+          if($("img", elem).attr("data-width")){ // fancypants method
+            getImageHeight = function(img, maxwidth, multiplier){
+              // get image height based on data-width and data-height
+              var width = $(img).data("width");
+              var height = $(img).data("height");
+
               var ratio = maxwidth / width;
               return height * ratio;
-            }
+            };
+          } else{
+            getImageHeight = function(img){
+              return $(img).height();
+            };
           }
 
           function resizePhotosetGrid(){
@@ -212,6 +214,7 @@
                 var $shortestImg = $(this).find('img:eq(0)');
                 var multiplier = $($(".photoset-cell", this).get(0)).data("multiplier");
                 var mw = w * multiplier;
+                console.log(mw);
 
                 $(this).find('img').each(function(){
                   var $img = $(this);
@@ -249,13 +252,16 @@
 
         };
 
-        setupStyles();
-        /*$(elem).imagesLoaded(function(){
+        if($("img", elem).attr("data-width")){
           setupStyles();
+        } else{
+          $(elem).imagesLoaded(function(){
+            setupStyles();
 
-          // Call _callback which calls the optional onComplete
-          $this._callback();
-        });*/
+            // Call _callback which calls the optional onComplete
+            $this._callback();
+          });
+        }
       }
 
     };

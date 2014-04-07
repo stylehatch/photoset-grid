@@ -17,7 +17,7 @@ Apply the photo set grid layout to a selected `div` containing images for the gr
 
 The only markup requirement is a `data-layout` attribute on the selected `div`. `data-layout` should contain a string of numbers representing the number of columns for each row. 
 
-Also required on each `ing` is a `data-width` and `data-height`. If you are using Tumblr, you can simply add `data-width="{PhotoWidth-500}" data-height="{PhotoHeight-500}"` (if you are using the 500px width images)
+Optionally on each `img` you can use `data-width` and `data-height`. Doing so allows the photoset to be laid out before the images are loaded. If you are using Tumblr, you can simply add `data-width="{PhotoWidth-500}" data-height="{PhotoHeight-500}"` (if you are using the 500px width images)
 
 **Understanding data-layout:**
 
