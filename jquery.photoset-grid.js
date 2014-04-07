@@ -186,9 +186,8 @@
             'padding-left': (gutterVal / 2) + 'px'
           });
 
-          function getImageHeight(img, maxwidth){
+          function getImageHeight(img, maxwidth, multiplier){
             // get image height based on data-width and data-height
-            // based on http://stackoverflow.com/questions/4590441/php-thumbnail-image-resizing-with-proportions
             var width = $(img).data("width");
             var height = $(img).data("height");
 
@@ -196,7 +195,7 @@
               /*ratio = maxheight / $height;  
               newheight = $maxheight;
               newwidth = $width * $ratio; */
-              return height;
+              return height * multiplier;
             } else{
               var ratio = maxwidth / width;
               return height * ratio;
@@ -216,7 +215,7 @@
 
                 $(this).find('img').each(function(){
                   var $img = $(this);
-                  if( getImageHeight($img, mw) < getImageHeight($shortestImg, mw) ){
+                  if( getImageHeight($img, mw, multiplier) < getImageHeight($shortestImg, mw, multiplier) ){
                       $shortestImg = $(this);
                   }
 
@@ -225,13 +224,13 @@
                   }
                 });
 
-                var rowHeight = getImageHeight($shortestImg, mw);
+                var rowHeight = getImageHeight($shortestImg, mw, multiplier);
                 // Adding a buffer to shave off a few pixels in height
                 var bufferHeight = Math.floor(rowHeight * 0.025);
                 $(this).height( rowHeight - bufferHeight );
 
                 $(this).find('img').each(function(){
-                  var marginOffset = ((rowHeight - getImageHeight(this))*0.5) + 'px';
+                  var marginOffset = ((rowHeight - getImageHeight(this, mw, multiplier))*0.5) + 'px';
                   $(this).css({
                     'margin-top' : marginOffset
                   });
