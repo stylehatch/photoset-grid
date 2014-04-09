@@ -110,7 +110,7 @@
         // Reference to this Plugin
         var $this = this;
 
-        var setupStyles = function(){
+        var setupStyles = function(waitForImagesLoaded){
           var $rows = $(elem).find('.photoset-row');
           var $images = $(elem).find('img');
 
@@ -136,6 +136,14 @@
           } else {
             $images.each(function(){
               $(this).wrapAll('<div class="photoset-cell" />');
+            });
+          }
+
+          // if the imaged did not have height/width attr set them
+          if (waitForImagesLoaded === true) {
+            $images.each(function(){
+              $(this).attr('height', $(this).height());
+              $(this).attr('width', $(this).width());
             });
           }
 
@@ -198,22 +206,25 @@
 
                 $(this).find('img').each(function(){
                   var $img = $(this);
-                  if( $img.height() < $shortestImg.height() ){
+                  if( $img.attr('height') < $shortestImg.attr('height') ){
                       $shortestImg = $(this);
                   }
 
-                  if($img.width() > options.lowresWidth && $img.attr('data-highres')){
+                  if(parseInt($img.css('width'), 10) > options.lowresWidth && $img.attr('data-highres')){
                       $img.attr('src', $img.attr('data-highres'));
                   }
                 });
 
-                var rowHeight = $shortestImg.height();
+                // Get the row height from the calculated/real height/width of the shortest image
+                var rowHeight = ( $shortestImg.attr('height') * parseInt($shortestImg.css('width'), 10) ) / $shortestImg.attr('width');
                 // Adding a buffer to shave off a few pixels in height
                 var bufferHeight = Math.floor(rowHeight * 0.025);
                 $(this).height( rowHeight - bufferHeight );
 
                 $(this).find('img').each(function(){
-                  var marginOffset = ((rowHeight - $(this).height())*0.5) + 'px';
+                  // Get the image height from the calculated/real height/width
+                  var imageHeight = ( $(this).attr('height') * parseInt($(this).css('width'), 10) ) / $(this).attr('width');
+                  var marginOffset = ( (rowHeight - imageHeight) * 0.5 ) + 'px';
                   $(this).css({
                     'margin-top' : marginOffset
                   });
@@ -244,11 +255,11 @@
         // Only use imagesLoaded() if waitForImagesLoaded
         if(waitForImagesLoaded) {
           $(elem).imagesLoaded(function(){
-            setupStyles();
+            setupStyles(waitForImagesLoaded);
             $this._callback(elem);
           });
         } else {
-          setupStyles();
+          setupStyles(waitForImagesLoaded);
           $this._callback(elem);
         }
 
