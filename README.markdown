@@ -17,6 +17,8 @@ Apply the photo set grid layout to a selected `div` containing images for the gr
 
 The only markup requirement is a `data-layout` attribute on the selected `div`. `data-layout` should contain a string of numbers representing the number of columns for each row. 
 
+If all of the images in a photoset set both a height and a width, the layout of the grid is triggered immediately before all of the images load. Otherwise [imagesLoaded](https://github.com/desandro/imagesloaded) is used to wait for all of the images to load in.
+
 **Understanding data-layout:**
 
 - `data-layout="2331"` 1st row has 2 images, 2nd row has 3 images, 3rd row has 3 images, and 4th row has 1 image. Total of 9 images.
