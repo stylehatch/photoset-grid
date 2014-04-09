@@ -139,14 +139,6 @@
             });
           }
 
-          // if the imaged did not have height/width attr set them
-          if (waitForImagesLoaded === true) {
-            $images.each(function(){
-              $(this).attr('height', $(this).height());
-              $(this).attr('width', $(this).width());
-            });
-          }
-
           var $cells = $(elem).find('.photoset-cell');
           var $cols1 = $(elem).find('.cols-1 .photoset-cell');
           var $cols2 = $(elem).find('.cols-2 .photoset-cell');
@@ -175,6 +167,14 @@
             'width': '100%',
             'height': 'auto'
           });
+
+          // if the imaged did not have height/width attr set them
+          if (waitForImagesLoaded) {
+            $images.each(function(){
+              $(this).attr('height', $(this).height());
+              $(this).attr('width', $(this).width());
+            });
+          }
 
           // Set the width of the cells based on the number of columns in the row
           $cols1.css({ 'width': '100%' });
@@ -245,12 +245,15 @@
 
         // By default the plugin will wait until all of the images are loaded to setup the styles
         var waitForImagesLoaded = true;
+        var hasDimensions = true;
 
         // Loops through all of the images in the photoset
         // if the height and width exists for all images set waitForImagesLoaded to false
         $(elem).find('img').each(function(){
-          waitForImagesLoaded = waitForImagesLoaded && ( !$(this).attr('height') && !$(this).attr('width') );
+          hasDimensions = hasDimensions & ( !!$(this).attr('height') & !!$(this).attr('width') );
         });
+
+        waitForImagesLoaded = !hasDimensions;
 
         // Only use imagesLoaded() if waitForImagesLoaded
         if(waitForImagesLoaded) {
