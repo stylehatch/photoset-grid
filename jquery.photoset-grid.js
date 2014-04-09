@@ -1,10 +1,10 @@
 /**
- * photoset-grid - v1.0.1
- * 2014-04-08
+ * photoset-grid - v1.0.0
+ * 2013-03-07
  * jQuery plugin to arrange images into a flexible grid
  * http://stylehatch.github.com/photoset-grid/
  *
- * Copyright 2014 Jonathan Moore - Style Hatch
+ * Copyright 2013 Jonathan Moore - Style Hatch
  */
 
  /*jshint browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true, devel: true */
@@ -232,27 +232,12 @@
 
         };
 
-        // By default the plugin will wait until all of the images are loaded to setup the styles
-        var waitForImagesLoaded = true;
-
-        // Loops through all of the images in the photoset
-        // if the height and width exists for all images set waitForImagesLoaded to false
-        $(elem).find('img').each(function(){
-          waitForImagesLoaded = waitForImagesLoaded && ( !$(this).attr('height') && !$(this).attr('width') );
-        });
-
-        // Only use imagesLoaded() if waitForImagesLoaded
-        if(waitForImagesLoaded) {
-          $(elem).imagesLoaded(function(){
-            setupStyles();
-            $this._callback(elem);
-          });
-        } else {
+        $(elem).imagesLoaded(function(){
           setupStyles();
-          $this._callback(elem);
-        }
 
-        
+          // Call _callback which calls the optional onComplete
+          $this._callback(elem);
+        });
       }
 
     };
@@ -445,3 +430,4 @@
 
 
 })( jQuery, window, document );
+

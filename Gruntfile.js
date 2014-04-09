@@ -1,19 +1,27 @@
 'use strict';
 
+var path = require('path');
+var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
+var folderMount = function folderMount(connect, point) {
+  return connect.static(path.resolve(point));
+};
 
 module.exports = function(grunt) {
 
   // Project config
-  /* SET - theme name, description and version number
-  **/
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-
+    // Use grunt-contrib-connect to launch a web server at port 9001
+    // Inject the livereloadSnippet via middleware to update the files
     connect: {
-      server: {
+      livereload: {
         options: {
-          port: 9001
+          port: 9001,
+          middleware: function(connect, options) {
+            return [lrSnippet, folderMount(connect, '.')]
+          }
         }
       }
     },
@@ -21,28 +29,27 @@ module.exports = function(grunt) {
     // Opens up the browser to the localhost along with the port defined above
     open: {
       dev: {
-        path: 'http://127.0.0.1:<%= connect.server.options.port %>/'
+        path: 'http://127.0.0.1:<%= connect.livereload.options.port %>/'
       }
     },
 
     // Observe the js/html/css files for changes and execute the tasks
-    watch: {
-      options: {
-        livereload: true,
-      },
+    regarde: {
       js: {
-        files: ['jquery.photoset-grid.js'],
-        tasks: ['jshint', 'uglify'],
+        files: ['**/*.js', '!**/node_modules/**'],
+        tasks: ['jshint', 'uglify', 'livereload'],
       },
       html: {
-        files: ['**/*.html', '!**/node_modules/**']
+        files: '**/*.html',
+        tasks: ['livereload']
       },
       css: {
-        files: '**/*.css'
+        files: '**/*.css',
+        tasks: ['livereload']
       },
       scss: {
         files: '**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'livereload']
       }
     },
 
@@ -85,12 +92,12 @@ module.exports = function(grunt) {
   });
 
   // Load the grunt plugins
+  grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-open');
 
   // $ grunt
@@ -98,6 +105,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'uglify', 'sass']);
   // $ grunt server
   // Checks the js, minfies it, starts livereload, connects to a local server, opens the browser and watches for changes 
-  grunt.registerTask('server', ['default', 'connect', 'open:dev', 'watch']);
+  grunt.registerTask('server', ['default', 'livereload-start', 'connect', 'open:dev', 'regarde']);
 
 };
