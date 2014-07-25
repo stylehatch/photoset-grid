@@ -77,7 +77,7 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 		onComplete: function(){
 		
 			$('.photoset-grid').css({
-				'visiblity': 'visible'
+				'visibility': 'visible'
 			});
 			
 		}
