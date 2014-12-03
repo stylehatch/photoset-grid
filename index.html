@@ -100,6 +100,12 @@
   highresLinks: true,
   // Asign a common rel attribute
   rel: 'print-gallery',
+  // Add a border to each image
+  borderActive: true,
+  borderWidth: '3px',
+  borderColor: '#000000',
+  borderRadius: '3px',
+  borderRemoveDouble: false,
 
   onInit: function(){},
   onComplete: function(){
@@ -210,6 +216,11 @@
       <li><code>highresLinks</code> - <code>boolean</code> Set to <code>true</code> to automatically swap out the default image <code>src</code> with the <code>data-highres</code> attribute once the image is wider than <code>lowresWidth</code>. This will also wrap each image with an <code>a</code> vs. <code>div</code> element. Default: <code>false</code></li>
       <li><code>lowresWidth</code> - <code>number</code> Sets the width where the default image is swapped out for the high resolution image. Default: <code>500</code></li>
       <li><code>rel</code> - <code>string</code> This optional setting useful for lightbox viewers applies a common `rel` attribute to the anchor tags wrapping the images. Default: <code>''</code></li>
+      <li><code>borderActive</code> - <code>boolean</code> This optional setting is used to wrap each image with a border. Default: <code>false</code></li>
+      <li><code>borderWidth</code> - <code>string</code> Define the width of the border wrapping each image. Default: <code>'5px'</code></li>
+      <li><code>borderColor</code> - <code>string</code> Defines the color used for the border wrapping each image. Default: <code>'#000000'</code></li>
+      <li><code>borderRadius</code> - <code>string</code> Defines the border radius of the border wrapping each image. Default: <code>'0'</code></li>
+      <li><code>borderRemoveDouble</code> - <code>boolean</code> If the gutter is set to 0px (or not specified) then this option can be used to remove double borders that would occur between each row/cell. Default: <code>false</code></li>
       <li><code>onInit</code> - <code>function</code> Define a function to be called when the plugin is initialized.</li>
       <li><code>onComplete</code> - <code>function</code> Define a function to be called when the plugin has completed the grid layout.</li>
       </ul>
@@ -268,6 +279,11 @@
     layout: '21',
     highresLinks: true,
     rel: 'print-gallery',
+    borderActive: true,
+    borderWidth: '3px',
+    borderColor: '#000000',
+    borderRadius: '3px',
+    borderRemoveDouble: false,
 
     onComplete: function(){
       $('.photoset-grid-custom').attr('style', '');
