@@ -4,7 +4,7 @@ A simple jQuery plugin to arrange images into a flexible grid, based on Tumblr's
 
 ## Demo
 
-View the [photoset grid Github page](http://stylehatch.github.com/photoset-grid) for all the examples or jump straight to the following demos: 
+View the [photoset grid Github page](http://stylehatch.github.com/photoset-grid) for all the examples or jump straight to the following demos:
 
 - [Basic usage](http://stylehatch.github.com/photoset-grid#demo-basic-usage)
 - [Custom options](http://stylehatch.github.com/photoset-grid#demo-custom-options)
@@ -13,9 +13,9 @@ View the [photoset grid Github page](http://stylehatch.github.com/photoset-grid)
 
 ## Usage
 
-Apply the photo set grid layout to a selected `div` containing images for the grid. 
+Apply the photo set grid layout to a selected `div` containing images for the grid.
 
-The only markup requirement is a `data-layout` attribute on the selected `div`. `data-layout` should contain a string of numbers representing the number of columns for each row. 
+The only markup requirement is a `data-layout` attribute on the selected `div`. `data-layout` should contain a string of numbers representing the number of columns for each row.
 
 If all of the images in a photoset set both a height and a width, the layout of the grid is triggered immediately before all of the images load. Otherwise [imagesLoaded](https://github.com/desandro/imagesloaded) is used to wait for all of the images to load in.
 
@@ -35,7 +35,7 @@ Simply call `photosetGrid();` on a div with the `data-layout` specified and a nu
 		<img src="image3.jpg">
 		<img src="image4.jpg">
 	</div>
-	
+
 ##### Javascript:
 	$('.photoset-grid').photosetGrid();
 #### Custom Options
@@ -50,6 +50,11 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 - `highresLinks` - `boolean` Set to `true` to automatically swap out the default image `src` with the `data-highres` attribute once the image is wider than `lowresWidth`. This will also wrap each image with an `a` vs. `div` element. Default: `false`
 - `lowresWidth` - `number` Sets the width where the default image is swapped out for the high resolution image. Default: `500`
 - `rel` - `string` This optional setting useful for lightbox viewers applies a common `rel` attribute to the anchor tags wrapping the images.
+- `borderActive` - `boolean` This optional setting is used to wrap each image with a border. Default: `false`
+- `borderWidth` - `string` Define the width of the border wrapping each image. Default: `'5px'`
+- `borderColor` - `string` Defines the color used for the border wrapping each image. Default: `'#000000'`
+- `borderRadius` - `string` Defines the border radius of the border wrapping each image. Default: `'0'`
+- `borderRemoveDouble` - `boolean ` If the gutter is set to 0px (or not specified) then this option can be used to remove double borders that would occur between each row/cell. Default: `false`
 - `onInit` - `function` Define a function to be called when the plugin is initialized.
 - `onComplete` - `function` Define a function to be called when the plugin has completed the grid layout.
 
@@ -63,7 +68,7 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 		<img src="image6.jpg" data-highres="highres-image6.jpg">
 		<img src="image7.jpg" data-highres="highres-image7.jpg">
 	</div>
-	
+
 ##### Javascript:
 	$('.photoset-grid').photosetGrid({
 		layout: '232',
@@ -72,14 +77,19 @@ Beyond the basic usage, you can set a number of optional arguments including cal
 		highresLinks: true,
 		lowresWidth: 300,
 		rel: 'gallery-01',
-		
+		borderActive: true,
+		borderWidth: '3px',
+		borderColor: '#000000',
+		borderRadius: '3px',
+		borderRemoveDouble: false,
+
 		onInit: function(){},
 		onComplete: function(){
-		
+
 			$('.photoset-grid').css({
 				'visibility': 'visible'
 			});
-			
+
 		}
 	});
 

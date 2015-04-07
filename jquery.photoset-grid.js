@@ -8,7 +8,7 @@
  */
 
  /*jshint browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true, devel: true */
-;(function ( $, window, document, undefined ) { 
+;(function ( $, window, document, undefined ) {
 
   'use strict';
 
@@ -28,6 +28,17 @@
       lowresWidth   : 500,
       // relational attr to apply to the links for lightbox use
       rel           : '',
+
+      // add a border to each image
+      borderActive: false,
+      // set border width
+      borderWidth: '5px',
+      // set border color
+      borderColor: '#000000',
+      // set border radius
+      borderRadius: '0',
+      // if true it will remove "double" borders
+      borderRemoveDouble: false,
 
       // Call back events
       onInit        : function(){},
@@ -53,7 +64,7 @@
 
         this._setupRows(this.element, this.options);
         this._setupColumns(this.element, this.options);
-        
+
       },
 
       _callback: function(elem){
@@ -96,7 +107,7 @@
 
           // Wrap each set of images in a row into a container div
           $images.slice(rowStart, rowEnd).wrapAll('<div class="photoset-row cols-' + val + '"></div>');
-          
+
           imageIndex = rowEnd;
         });
 
@@ -126,6 +137,9 @@
                   highres = $(this).attr('src');
               }
               $(this).wrapAll('<a href="' + highres + '" class="photoset-cell highres-link" />');
+              if(options.borderActive){
+                $(this).wrapAll('<span class="photoset-content-border" />');
+              }
             });
 
             // Apply the optional rel
@@ -135,7 +149,12 @@
 
           } else {
             $images.each(function(){
-              $(this).wrapAll('<div class="photoset-cell" />');
+              if(options.borderActive){
+                $(this).wrapAll('<div class="photoset-cell photoset-cell--border" />');
+                $(this).wrapAll('<div class="photoset-content-border" />');
+              } else {
+                $(this).wrapAll('<div class="photoset-cell" />');
+              }
             });
           }
 
@@ -145,6 +164,7 @@
           var $cols3 = $(elem).find('.cols-3 .photoset-cell');
           var $cols4 = $(elem).find('.cols-4 .photoset-cell');
           var $cols5 = $(elem).find('.cols-5 .photoset-cell');
+          var $cellBorder = $(elem).find('.photoset-content-border');
 
           // Apply styles initial structure styles to the grid
           $(elem).css({
@@ -167,6 +187,17 @@
             'width': '100%',
             'height': 'auto'
           });
+          if(options.borderActive){
+            $cellBorder.css({
+              'display': 'block',
+              'border': options.borderWidth + ' solid ' + options.borderColor,
+              'border-radius': options.borderRadius,
+              'overflow': 'hidden',
+              '-webkit-box-sizing': 'border-box',
+              '-moz-box-sizing': 'border-box',
+              'box-sizing': 'border-box'
+            });
+          }
 
           // if the imaged did not have height/width attr set them
           if (waitForImagesLoaded) {
@@ -194,6 +225,11 @@
             'padding-left': (gutterVal / 2) + 'px'
           });
 
+          // If 'borderRemoveDouble' is true, let us remove the extra gutter border
+          if(options.borderRemoveDouble){
+            $(elem).find('.photoset-row').not(':eq(0)').find('.photoset-content-border').css({'border-top': 'none'});
+            $(elem).find('.photoset-row').not('.cols-1').find('.photoset-content-border').not(":eq(0)").css({'border-left': 'none'});
+          }
 
           function resizePhotosetGrid(){
 
@@ -221,6 +257,13 @@
                 var bufferHeight = Math.floor(rowHeight * 0.025);
                 $(this).height( rowHeight - bufferHeight );
 
+                // If border is set to true, then add the parent row height to each .photoset-content-border
+                if(options.borderActive){
+                  $(this).find('.photoset-content-border').each(function(){
+                    $(this).css({'height': rowHeight - bufferHeight});
+                  });
+                }
+
                 $(this).find('img').each(function(){
                   // Get the image height from the calculated/real height/width
                   var imageHeight = ( $(this).attr('height') * parseInt($(this).css('width'), 10) ) / $(this).attr('width');
@@ -232,14 +275,14 @@
 
               });
               $(elem).attr('data-width', w );
-            } 
+            }
 
           }
           resizePhotosetGrid();
 
           $(window).on("resize", function() {
             resizePhotosetGrid();
-          }); 
+          });
 
         };
 
@@ -266,7 +309,7 @@
           $this._callback(elem);
         }
 
-        
+
       }
 
     };
@@ -410,7 +453,7 @@
      * Copyright 2012 @louis_remi
      * Licensed under the MIT license.
      *
-     * This saved you an hour of work? 
+     * This saved you an hour of work?
      * Send me music http://www.amazon.co.uk/wishlist/HNTU0468LQON
      */
 
