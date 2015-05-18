@@ -129,6 +129,13 @@
           // Otherwise wrap in div.photoset-cell
           if(options.highresLinks){
             $images.each(function(){
+              var title;
+              // If the image has a title pass it on
+              if($(this).attr('title')){
+                  title = ' title="' + $(this).attr('title') + '"';
+              } else {
+                  title = '';
+              }
               var highres;
               // If a highres image exists link it up!
               if($(this).attr('data-highres')){
@@ -136,7 +143,7 @@
               } else {
                   highres = $(this).attr('src');
               }
-              $(this).wrapAll('<a href="' + highres + '" class="photoset-cell highres-link" />');
+              $(this).wrapAll('<a href="' + highres + '"' + title + ' class="photoset-cell highres-link" />');
               if(options.borderActive){
                 $(this).wrapAll('<span class="photoset-content-border" />');
               }
