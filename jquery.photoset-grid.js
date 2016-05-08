@@ -249,7 +249,7 @@
 
                 $(this).find('img').each(function(){
                   var $img = $(this);
-                  if( $img.attr('height') < $shortestImg.attr('height') ){
+                  if( parseInt($img.attr('height'), 10) < parseInt($shortestImg.attr('height'),10) ){
                       $shortestImg = $(this);
                   }
 
