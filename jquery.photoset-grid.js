@@ -274,7 +274,7 @@
                 $(this).find('img').each(function(){
                   // Get the image height from the calculated/real height/width
                   var imageHeight = ( $(this).attr('height') * parseInt($(this).css('width'), 10) ) / $(this).attr('width');
-                  var marginOffset = ( (rowHeight - imageHeight) * 0.5 ) + 'px';
+                  var marginOffset = Math.floor( (rowHeight - imageHeight) * 0.5 ) + 'px';
                   $(this).css({
                     'margin-top' : marginOffset
                   });
