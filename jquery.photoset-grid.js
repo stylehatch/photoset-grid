@@ -7,8 +7,8 @@
  * Copyright 2014 Jonathan Moore - Style Hatch
  */
 
- /*jshint browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true, devel: true */
-;(function ( $, window, document, undefined ) {
+ /*jshint browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true, devel: true */;
+(function ( $, window, document, undefined ) {
 
   'use strict';
 
@@ -39,6 +39,8 @@
       borderRadius: '0',
       // if true it will remove "double" borders
       borderRemoveDouble: false,
+      // CSS selector for the mosaic elements
+      selector: 'img',
 
       // Call back events
       onInit        : function(){},
@@ -85,7 +87,8 @@
           // Generate a layout string of all ones based on the number of images
           var stackedLayout = "";
           var defaultColumns = 1;
-          for (var imgs=0; imgs<$(elem).find('img').length; imgs++ ) {
+
+          for (var imgs=0; imgs<$(elem).find(this.options.selector).length; imgs++ ) {
             stackedLayout = stackedLayout + defaultColumns.toString();
           }
           this.layout = stackedLayout;
@@ -98,7 +101,7 @@
           this.rows[i] = parseInt(this.rows[i], 10);
         }
 
-        var $images = $(elem).find('img');
+        var $images = $(elem).find(this.options.selector);
         var imageIndex = 0;
 
         $.each(this.rows, function(i, val){
@@ -110,7 +113,6 @@
 
           imageIndex = rowEnd;
         });
-
         $(elem).find('.photoset-row:not(:last-child)').css({
           'margin-bottom': options.gutter
         });
@@ -123,7 +125,7 @@
 
         var setupStyles = function(waitForImagesLoaded){
           var $rows = $(elem).find('.photoset-row');
-          var $images = $(elem).find('img');
+          var $images = $(elem).find(options.selector);
 
           // Wrap the images in links to the highres or regular image
           // Otherwise wrap in div.photoset-cell
@@ -247,9 +249,9 @@
               $rows.each(function(){
                 var $shortestImg = $(this).find('img:eq(0)');
 
-                $(this).find('img').each(function(){
+                $(this).find(options.selector).each(function(){
                   var $img = $(this);
-                  if( parseInt($img.attr('height'), 10) < parseInt($shortestImg.attr('height'),10) ){
+                  if( $img.attr('height') < $shortestImg.attr('height') ){
                       $shortestImg = $(this);
                   }
 
@@ -271,10 +273,10 @@
                   });
                 }
 
-                $(this).find('img').each(function(){
+                $(this).find(options.selector).each(function(){
                   // Get the image height from the calculated/real height/width
                   var imageHeight = ( $(this).attr('height') * parseInt($(this).css('width'), 10) ) / $(this).attr('width');
-                  var marginOffset = Math.floor( (rowHeight - imageHeight) * 0.5 ) + 'px';
+                  var marginOffset = ( (rowHeight - imageHeight) * 0.5 ) + 'px';
                   $(this).css({
                     'margin-top' : marginOffset
                   });
@@ -299,7 +301,7 @@
 
         // Loops through all of the images in the photoset
         // if the height and width exists for all images set waitForImagesLoaded to false
-        $(elem).find('img').each(function(){
+        $(elem).find(this.options.selector).each(function(){
           hasDimensions = hasDimensions & ( !!$(this).attr('height') & !!$(this).attr('width') );
         });
 
